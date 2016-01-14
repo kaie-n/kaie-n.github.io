@@ -36,6 +36,11 @@
    
    <script>
 			$(document).ready(function(){
+				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				 // some code..
+				}else
+				{
+				//Now include js files
 				//Examples of how to assign the ColorBox event to elements
 				$("a.img").colorbox({rel:'img'});
 				$("a.img").colorbox({maxWidth:'50%', transition:'fade'});
@@ -49,7 +54,7 @@
 						scrollbarMargin: 0
 						});
 					}
-					
+				}
 					});
 			});
 	</script>

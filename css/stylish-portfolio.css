@@ -165,17 +165,22 @@ hr.small {
     position: relative;
     left: -40px;
 }
-
 .share ul {
     white-space: nowrap;
 }
-
+.hideAfterFade {
+    transition-delay: 1s;
+    opacity:0;
+    visibility:hidden;
+}
 .share {
+    
     height: 40px;
     width: 126px;
     left: 50%;
-    position: fixed;
-    margin-left: -62.5px;
+    position: absolute;
+    margin-left: -83px;
+    bottom: 7%;
 }
 
 #sidebar-wrapper.active {
@@ -193,9 +198,12 @@ hr.small {
 }
 
 /* Header */
+.push-bot-40{
+    margin-bottom:40px;
+}
 
 .header {
-    opacity: 0;
+    opacity: 1;
     display: table;
     position: fixed;
     left: 0px;
@@ -365,7 +373,7 @@ hr.small {
     z-index: 100;
     width: 100%;
     left: 0px;
-    bottom: 0px;
+    bottom: 40px;
 }
 
 address {
@@ -373,8 +381,8 @@ address {
     margin-bottom: 20px !important;
     position: relative;
     bottom: -40px;
-    left: 40px;
-    text-align: left;
+    left: 0px;
+    text-align: center;
 }
 
 /* portrait */

@@ -140,7 +140,7 @@ hr.small {
 }
 
 .st0 {
-    stroke: #C09F68;
+    stroke: #000000;
     fill: none;
 }
 
@@ -180,7 +180,7 @@ hr.small {
     left: 50%;
     position: absolute;
     margin-left: -83px;
-    bottom: 7%;
+    bottom: 25%;
 }
 
 #sidebar-wrapper.active {
@@ -224,7 +224,10 @@ hr.small {
     background: url(../img/mask.jpg) no-repeat;
     width: 180px;
     height: 180px;
-    margin: auto;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
 }
 .logo-overlay {
     transition: all 0.5s ease-out;
@@ -234,11 +237,18 @@ hr.small {
     width: 180px;
     height: 180px;
     margin: auto;
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin-top: -90px;
+    margin-left: -90px;
 }
 
 .logo-overlay.clicked {
     transition: all 0.5s ease-out;
      transform-origin: 85px 165px 0px; transform: matrix(0.9063, -0.42261, 0.42261, 0.9063, 0, 0);
+     margin-top: -90px;
+    margin-left: -90px;
 }
 
 /*.logo-overlay:active {

@@ -10,8 +10,6 @@ var navRight
 
 
 window.onload = function () {
-   
-
     logo = document.getElementById('logo-overlay')
     share = document.getElementById('share')
     navLeft = document.getElementById('nav-left')

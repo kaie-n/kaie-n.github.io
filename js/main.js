@@ -10,6 +10,9 @@ var navRight
 
 
 window.onload = function () {
+    $('.overlay-center').addClass('overlay-center-loaded')
+    $('#overlay').delay(1000).fadeOut();
+
     $(window).on("orientationchange", function () {
         var width = window.innerWidth
 || document.documentElement.clientWidth
@@ -22,7 +25,7 @@ window.onload = function () {
         var bg = document.getElementById('background-vertical');
         bg.style.minHeight = String(change) + "px"
         var bgOverlay = document.getElementById('background-vertical-overlay');
-        bgOverlay.style.minHeight = String(change) + "px"
+        bgOverlay.style.minHeight = String(document.getElementById("background-vertical").clientHeight) + "px"
     });
     logo = document.getElementById('logo-overlay')
     share = document.getElementById('share')
@@ -47,7 +50,7 @@ window.onload = function () {
     var bg = document.getElementById('background-vertical');
     var bgOverlay = document.getElementById('background-vertical-overlay');
     bg.style.minHeight = String(change) + "px"
-    bgOverlay.style.minHeight = String(change) + "px"
+    bgOverlay.style.minHeight = String(document.getElementById("background-vertical").clientHeight) + "px"
 
     $(".linkage").on('click', function (e) {
         e.preventDefault();
@@ -91,7 +94,7 @@ window.onresize = function () {
     var bg = document.getElementById('background-vertical');
     bg.style.minHeight = String(change) + "px"
     var bgOverlay = document.getElementById('background-vertical-overlay');
-    bgOverlay.style.minHeight = String(change) + "px"
+    bgOverlay.style.minHeight = String(document.getElementById("background-vertical").clientHeight) + "px"
 }
 
 function toggleNavigation() {

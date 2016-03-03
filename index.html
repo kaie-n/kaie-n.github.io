@@ -38,10 +38,17 @@
 </head>
 
 <body>
+    <div id="overlay">
+        <div class="overlay-center">
+            <img src="img/loader.gif" style="margin:0 auto;"></img>
+        </div>
+    </div>
     <div id="top-nav" class="wow fadeIn">
         <div class="row-fluid">
             <div class="col-sm-12 text-center">
-                <a href="#homepage" class="linkage"><img src="img/logo-56x56.gif" class="margin-top-20" /></a>
+                <a href="#homepage" class="linkage">
+                    <img src="img/logo-56x56.gif" class="logo" onmouseover="this.src = 'img/loader.gif'" onmouseout="    this.src = 'img/logo-56x56.gif'"/>
+                </a>
             </div>
         </div>
         <div class="row-fluid">
@@ -229,7 +236,7 @@
                     var bg = document.getElementById('background-vertical');
                     bg.style.minHeight = String(change) + "px"
                     var bgOverlay = document.getElementById('background-vertical-overlay');
-                    bgOverlay.style.minHeight = String(change) + "px"
+                    bgOverlay.style.minHeight = String(document.getElementById("background-vertical").clientHeight) + "px"
                     break;
                 default:
                     var width = window.innerWidth
@@ -243,7 +250,7 @@
                     var bg = document.getElementById('background-vertical');
                     bg.style.minHeight = String(change) + "px"
                     var bgOverlay = document.getElementById('background-vertical-overlay');
-                    bgOverlay.style.minHeight = String(change) + "px"
+                    bgOverlay.style.minHeight = String(document.getElementById("background-vertical").clientHeight) + "px";
                     break;
             }
         }

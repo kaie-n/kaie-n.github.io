@@ -34,12 +34,21 @@ body {
         font-weight: 700;
     }
 
-.background-vertical {
+#background-vertical {
     min-height: 62%;
     background: url(../img/portfolio/background-01.jpg) no-repeat center;
     background-size: cover;
     background-color: #333;
     height: 62%;
+    transition: background 0.5s ease;
+    visibility:hidden;
+}
+#background-vertical-overlay {
+     position: absolute;
+    width: 100%;
+    min-height: 554px;
+    background-color: #000;
+    opacity: 0.6;
 }
 
 .table-div {
@@ -52,6 +61,16 @@ body {
     color: #FFFFFF;
     display: table-cell;
     vertical-align: middle;
+}
+.table-div-cell a{
+    color:#FFF;
+}
+.table-div-cell a:hover{
+    color:#dae6ff;
+    text-decoration: none;
+}
+.table-div-cell p{
+    text-align:center;
 }
 /* Custom Button Styles */
 
@@ -90,10 +109,10 @@ hr.small {
 /* Side Menu */
 #top-nav {
     position:relative;
-    z-index: 1000;
+    z-index: 256;
 }
-
-.margin-top-20 {
+.linkage {
+    margin: 0 5% 0 5%;
 }
 
 
@@ -230,8 +249,6 @@ hr.small {
 }
 
 .header {
-    pointer-events: none;
-    z-index: -444;
     opacity: 1;
     display: table;
     position: fixed;
@@ -243,6 +260,7 @@ hr.small {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    visibility:hidden;
 }
 
 

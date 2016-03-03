@@ -31,11 +31,37 @@ window.onload = function () {
     || document.body.clientHeight;
     var change = height - (76 * 2)
     var bg = document.getElementById('background-vertical');
+    var bgOverlay = document.getElementById('background-vertical-overlay');
     bg.style.minHeight = String(change) + "px"
+    bgOverlay.style.minHeight = String(change) + "px"
 
     $(".linkage").on('click', function (e) {
-        $($(this).attr("href")).fadeToggle();
-        $($(this).attr("href")).css("display", "table-cell");
+        var t = $($(this).attr("href"))
+        var u = $(this).attr("href");
+        if (t.hasClass("show-time") == false) {
+            $("div.show-time").each(function () {
+                if ($("div").hasClass("show-time")) {
+                    $('div.show-time').fadeOut(400, function () {
+                        $('div.show-time').removeClass("show-time")
+                        t.fadeToggle(400, function () {
+                            t.addClass("show-time")
+                        });
+                        t.css("display", "table-cell");
+                    });
+                }
+            });
+        }
+        console.log(u);
+        if (u == "#homepage") {
+            bg.style.background = "url(../img/portfolio/background-01.jpg) no-repeat center"
+            bg.style.backgroundSize = "cover";
+            $("#background-vertical").css('background', 'url(../img/portfolio/background-01.jpg) no-repeat center;');
+        }
+        if (u == "#about") {
+            bg.style.background = "url(../img/portfolio/background-02.jpg) no-repeat center"
+            bg.style.backgroundSize = "cover";
+            $("#background-vertical").css('background', 'url(../img/portfolio/background-02.jpg) no-repeat center;');
+        }
     });
 }
 window.onresize = function () {
@@ -49,6 +75,8 @@ window.onresize = function () {
     var change = height - (76 * 2)
     var bg = document.getElementById('background-vertical');
     bg.style.minHeight = String(change) + "px"
+    var bgOverlay = document.getElementById('background-vertical-overlay');
+    bgOverlay.style.minHeight = String(change) + "px"
 }
 
 function toggleNavigation() {

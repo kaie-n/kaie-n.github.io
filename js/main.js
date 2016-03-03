@@ -2,10 +2,13 @@
 wow = new WOW()
 wow.init();
 
-var logo 
+var logo
 var share
 var navLeft
 var navRight
+
+
+
 window.onload = function () {
     logo = document.getElementById('logo-overlay')
     share = document.getElementById('share')
@@ -19,9 +22,36 @@ window.onload = function () {
         share.classList.toggle('hideAfterFade')
         logo.classList.toggle('clicked')
     };
+    var width = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+    var height = window.innerHeight
+    || document.documentElement.clientHeight
+    || document.body.clientHeight;
+    var change = height - (76 * 2)
+    var bg = document.getElementById('background-vertical');
+    bg.style.minHeight = String(change) + "px"
+
+    $(".linkage").on('click', function (e) {
+        $($(this).attr("href")).fadeToggle();
+        $($(this).attr("href")).css("display", "table-cell");
+    });
+}
+window.onresize = function () {
+    var width = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+    var height = window.innerHeight
+    || document.documentElement.clientHeight
+    || document.body.clientHeight;
+    var change = height - (76 * 2)
+    var bg = document.getElementById('background-vertical');
+    bg.style.minHeight = String(change) + "px"
 }
 
-function toggleNavigation(){
+function toggleNavigation() {
     if (!logo.classList.contains('clicked')) {
         navRight.classList.remove('fadeOutRight')
         navRight.classList.add('fadeInRight', 'animated')
@@ -30,7 +60,7 @@ function toggleNavigation(){
         navLeft.classList.add('fadeInLeft', 'animated')
 
         share.classList.remove('fadeOutUp')
-        share.classList.add('fadeInDown','animated')
+        share.classList.add('fadeInDown', 'animated')
     }
     if (logo.classList.contains('clicked')) {
         navRight.classList.remove('fadeInRight')

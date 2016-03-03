@@ -34,6 +34,25 @@ body {
         font-weight: 700;
     }
 
+.background-vertical {
+    min-height: 62%;
+    background: url(../img/portfolio/background-01.jpg) no-repeat center;
+    background-size: cover;
+    background-color: #333;
+    height: 62%;
+}
+
+.table-div {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.table-div-cell {
+    color: #FFFFFF;
+    display: table-cell;
+    vertical-align: middle;
+}
 /* Custom Button Styles */
 
 .btn-dark {
@@ -69,6 +88,14 @@ hr.small {
 }
 
 /* Side Menu */
+#top-nav {
+    position:relative;
+    z-index: 1000;
+}
+
+.margin-top-20 {
+}
+
 
 #sidebar-wrapper {
     z-index: 1000;
@@ -165,22 +192,22 @@ hr.small {
     position: relative;
     left: -40px;
 }
+
 .share ul {
     white-space: nowrap;
 }
+
 .hideAfterFade {
-    transition-delay: 1s;
-    opacity:0;
-    visibility:hidden;
+    display:none;
 }
+
 .share {
-    
     height: 40px;
     width: 126px;
     left: 50%;
     position: absolute;
-    margin-left: -83px;
-    bottom: 25%;
+    margin-left: -63px;
+    /*bottom: 25%;*/
 }
 
 #sidebar-wrapper.active {
@@ -198,11 +225,13 @@ hr.small {
 }
 
 /* Header */
-.push-bot-40{
-    margin-bottom:40px;
+.push-bot-40 {
+    margin-bottom: 40px;
 }
 
 .header {
+    pointer-events: none;
+    z-index: -444;
     opacity: 1;
     display: table;
     position: fixed;
@@ -210,7 +239,6 @@ hr.small {
     top: 0px;
     width: 100%;
     height: 100%;
-    background: url(../img/bg.jpg) no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -224,32 +252,34 @@ hr.small {
     background: url(../img/mask.jpg) no-repeat;
     width: 180px;
     height: 180px;
-    position:fixed;
-    top:50%;
-    left:50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
+
 .logo-overlay {
     transition: all 0.5s ease-out;
     transform-origin: 85px 165px 0px;
-     transform: none;
+    transform: none;
     background: url(../img/mask-overlay.png) no-repeat;
     width: 180px;
     height: 180px;
     margin: auto;
-    position:fixed;
-    top:50%;
-    left:50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
     margin-top: -90px;
     margin-left: -90px;
 }
 
-.logo-overlay.clicked {
-    transition: all 0.5s ease-out;
-     transform-origin: 85px 165px 0px; transform: matrix(0.9063, -0.42261, 0.42261, 0.9063, 0, 0);
-     margin-top: -90px;
-    margin-left: -90px;
-}
+    .logo-overlay.clicked {
+        transition: all 0.5s ease-out;
+        transform-origin: 85px 165px 0px;
+        transform: matrix(0.9063, -0.42261, 0.42261, 0.9063, 0, 0);
+        margin-top: -90px;
+        margin-left: -90px;
+    }
 
 /*.logo-overlay:active {
     transform-origin: 85px 165px 0px; transform: matrix(0.9063, -0.42261, 0.42261, 0.9063, 0, 0);
@@ -383,12 +413,12 @@ hr.small {
     z-index: 100;
     width: 100%;
     left: 0px;
-    bottom: 40px;
+    bottom: 25px;
 }
 
 address {
     transition: all 0.5s ease-out;
-    margin-bottom: 20px !important;
+    margin-bottom: 30px !important;
     position: relative;
     bottom: -40px;
     left: 0px;
@@ -417,7 +447,11 @@ address {
     }
 
     .text-vertical-center {
-        vertical-align: top;
+        vertical-align: middle;
+    }
+
+    .margin-top-20 {
+        width:50px;
     }
 }
 
@@ -425,6 +459,9 @@ address {
 @media (min-width: 768px) {
     .text-vertical-center {
         vertical-align: middle;
+    }
+    .margin-top-20 {
+        width:56px;
     }
 }
 
@@ -437,5 +474,14 @@ address {
 }
 
 /* Landscape phones and down */
-@media (max-width: 480px) {
+@media (max-width: 480px) and (orientation:portrait){
+    .margin-top-20 {
+        width:50px;
+    }
+}
+/* Lowest height possible  */
+@media (max-height: 400px){
+    .margin-top-20 {
+        width:50px;
+    }
 }

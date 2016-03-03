@@ -10,6 +10,20 @@ var navRight
 
 
 window.onload = function () {
+    $(window).on("orientationchange", function () {
+        var width = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+        var height = window.innerHeight
+        || document.documentElement.clientHeight
+        || document.body.clientHeight;
+        var change = height - (76 * 2)
+        var bg = document.getElementById('background-vertical');
+        bg.style.minHeight = String(change) + "px"
+        var bgOverlay = document.getElementById('background-vertical-overlay');
+        bgOverlay.style.minHeight = String(change) + "px"
+    });
     logo = document.getElementById('logo-overlay')
     share = document.getElementById('share')
     navLeft = document.getElementById('nav-left')

@@ -27,18 +27,7 @@ window.onload = function () {
         var bgOverlay = document.getElementById('background-vertical-overlay');
         bgOverlay.style.minHeight = String(document.getElementById("background-vertical").clientHeight) + "px"
     });
-    logo = document.getElementById('logo-overlay')
-    share = document.getElementById('share')
-    navLeft = document.getElementById('nav-left')
-    navRight = document.getElementById('nav-right')
-
-    logo.onmousedown = function () {
-        toggleNavigation();
-        navLeft.classList.toggle('hideAfterFade')
-        navRight.classList.toggle('hideAfterFade')
-        share.classList.toggle('hideAfterFade')
-        logo.classList.toggle('clicked')
-    };
+  
     var width = window.innerWidth
 || document.documentElement.clientWidth
 || document.body.clientWidth;
@@ -59,9 +48,9 @@ window.onload = function () {
         if (t.hasClass("show-time") == false) {
             $("div.show-time").each(function () {
                 if ($("div").hasClass("show-time")) {
-                    $('div.show-time').fadeOut(400, function () {
+                    $('div.show-time').fadeOut(250, function () {
                         $('div.show-time').removeClass("show-time")
-                        t.fadeToggle(400, function () {
+                        t.fadeToggle(250, function () {
                             t.addClass("show-time")
                         });
                         t.css("display", "table-cell");
@@ -97,25 +86,3 @@ window.onresize = function () {
     bgOverlay.style.minHeight = String(document.getElementById("background-vertical").clientHeight) + "px"
 }
 
-function toggleNavigation() {
-    if (!logo.classList.contains('clicked')) {
-        navRight.classList.remove('fadeOutRight')
-        navRight.classList.add('fadeInRight', 'animated')
-
-        navLeft.classList.remove('fadeOutLeft')
-        navLeft.classList.add('fadeInLeft', 'animated')
-
-        share.classList.remove('fadeOutUp')
-        share.classList.add('fadeInDown', 'animated')
-    }
-    if (logo.classList.contains('clicked')) {
-        navRight.classList.remove('fadeInRight')
-        navRight.classList.add('fadeOutRight', 'animated')
-
-        navLeft.classList.remove('fadeInLeft')
-        navLeft.classList.add('fadeOutLeft', 'animated')
-
-        share.classList.remove('fadeInDown')
-        share.classList.add('fadeOutUp', 'animated')
-    }
-}

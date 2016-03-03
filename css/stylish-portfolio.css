@@ -108,7 +108,8 @@ hr.small {
 
 /* Side Menu */
 #top-nav {
-    position:relative;
+    position:fixed;
+    width:100%;
     z-index: 256;
 }
 .linkage {

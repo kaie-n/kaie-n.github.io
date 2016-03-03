@@ -10,9 +10,7 @@ var navRight
 
 
 window.onload = function () {
-    $(window).on("orientationchange", function () {
-        alert("The orientation has changed!");
-    });
+   
 
     logo = document.getElementById('logo-overlay')
     share = document.getElementById('share')

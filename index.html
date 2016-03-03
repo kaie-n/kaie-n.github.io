@@ -214,6 +214,44 @@
         }
         addLoadEvent(preloader);
 
+        function doOnOrientationChange() {
+            switch (window.orientation) {
+                case -90:
+                case 90:
+                    var width = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+                    var height = window.innerHeight
+                    || document.documentElement.clientHeight
+                    || document.body.clientHeight;
+                    var change = height - (76 * 2)
+                    var bg = document.getElementById('background-vertical');
+                    bg.style.minHeight = String(change) + "px"
+                    var bgOverlay = document.getElementById('background-vertical-overlay');
+                    bgOverlay.style.minHeight = String(change) + "px"
+                    break;
+                default:
+                    var width = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+                    var height = window.innerHeight
+                    || document.documentElement.clientHeight
+                    || document.body.clientHeight;
+                    var change = height - (76 * 2)
+                    var bg = document.getElementById('background-vertical');
+                    bg.style.minHeight = String(change) + "px"
+                    var bgOverlay = document.getElementById('background-vertical-overlay');
+                    bgOverlay.style.minHeight = String(change) + "px"
+                    break;
+            }
+        }
+
+        window.addEventListener('orientationchange', doOnOrientationChange);
+
+        // Initial execution if needed
+        doOnOrientationChange();
     </script>
 
 </body>

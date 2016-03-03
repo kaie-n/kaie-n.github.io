@@ -187,6 +187,34 @@
         ga('create', 'UA-31554703-1', 'auto');
         ga('send', 'pageview');
     </script>
+    <script type="text/javascript">
+        function preloader() {
+            if (document.images) {
+                var img1 = new Image();
+                var img2 = new Image();
+                var img3 = new Image();
+
+                img1.src = "../img/portfolio/background-01.jpg";
+                img2.src = "../img/portfolio/background-02.jpg";
+                img3.src = "../img/portfolio/background-03.jpg";
+            }
+        }
+        function addLoadEvent(func) {
+            var oldonload = window.onload;
+            if (typeof window.onload != 'function') {
+                window.onload = func;
+            } else {
+                window.onload = function () {
+                    if (oldonload) {
+                        oldonload();
+                    }
+                    func();
+                }
+            }
+        }
+        addLoadEvent(preloader);
+
+    </script>
 
 </body>
 

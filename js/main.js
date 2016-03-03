@@ -36,6 +36,7 @@ window.onload = function () {
     bgOverlay.style.minHeight = String(change) + "px"
 
     $(".linkage").on('click', function (e) {
+        e.preventDefault();
         var t = $($(this).attr("href"))
         var u = $(this).attr("href");
         if (t.hasClass("show-time") == false) {
@@ -51,7 +52,6 @@ window.onload = function () {
                 }
             });
         }
-        console.log(u);
         if (u == "#homepage") {
             bg.style.background = "url(../img/portfolio/background-01.jpg) no-repeat center"
             bg.style.backgroundSize = "cover";
@@ -62,6 +62,7 @@ window.onload = function () {
             bg.style.backgroundSize = "cover";
             $("#background-vertical").css('background', 'url(../img/portfolio/background-02.jpg) no-repeat center;');
         }
+        
     });
 }
 window.onresize = function () {

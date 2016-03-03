@@ -267,9 +267,6 @@ a.linkage:hover,a.linkage:focus  {
     visibility:hidden;
 }
 
-.logo:hover{
-
-}
 
 
 /*.logo-overlay:active {
@@ -431,11 +428,11 @@ address {
     display: table;
 }
 .overlay-center {
-     -webkit-transition: all 1s ease 0s;
-   -moz-transition: all 1s ease 0s;
-   -o-transition: all 1s ease 0s;
-   transition: all 1s ease 0s;
-    transition: all 1s ease 0s;
+     -webkit-transition: all 1s ease 1s;
+   -moz-transition: all 1s ease 1s;
+   -o-transition: all 1s ease 1s;
+   transition: all 1s ease 1s;
+    transition: all 1s ease 1s;
     display: block;
     position:fixed;
     top:50%;

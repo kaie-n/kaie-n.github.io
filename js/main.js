@@ -11,7 +11,7 @@ var navRight
 
 window.onload = function () {
     $('.overlay-center').addClass('overlay-center-loaded')
-    $('#overlay').delay(1000).fadeOut();
+    $('#overlay').delay(2000).fadeOut();
 
     $(window).on("orientationchange", function () {
         var width = window.innerWidth

@@ -59,7 +59,7 @@ window.onload = function () {
             bg.style.backgroundSize = "cover";
             $("#background-vertical").css('background', 'url(../img/portfolio/background-03.jpg) no-repeat center;');
         }
-        if (u == "#contact") {
+        if (u == "#contact" || u == "#thanks") {
             bg.style.background = "url(../img/portfolio/background-04.jpg) no-repeat center"
             bg.style.backgroundSize = "cover";
             $("#background-vertical").css('background', 'url(../img/portfolio/background-04.jpg) no-repeat center;');

@@ -105,13 +105,20 @@
                             </p>
                         </div>
                     </div>
+                    <div id="thanks" class="table-div-cell hideAfterFade">
+                        <div class="col-md-6 col-md-offset-3">
+                            <p>Cheers!</p>
+                            <p>I will get back to you in just a few hours, or days..</p>
+                        </div>
+                    </div>
                     <div id="contact" class="table-div-cell hideAfterFade">
                         <div id="contact-form" class="col-md-6 col-md-offset-3 " style="overflow-x:hidden;overflow-y: auto;">
                             <p></p>
                             <p>Say hello!</p>
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" action="//formspree.io/contact@kaienx.com" method="POST">
                                 <fieldset>
-
+                                    <input type="text" name="_gotcha" style="display:none" />
+                                    <input type="hidden" name="_next" value="#thanks" />
                                     <!-- Form Name -->
                                     <!-- Text input-->
                                     <div class="form-group">
@@ -125,7 +132,7 @@
                                     <div class="form-group">
                                         <label class="col-md-12 control-label" for="form-email"></label>
                                         <div class="col-md-12">
-                                            <input id="form-email" name="form-email" type="text" placeholder="EMAIL" class="form-control input-md" required="">
+                                            <input id="form-email" name="_replyto" type="text" placeholder="EMAIL" class="form-control input-md" required="">
                                         </div>
                                     </div>
 

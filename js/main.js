@@ -83,3 +83,24 @@ window.onresize = function () {
     document.getElementById('contact-form').style.height = String(change) + "px";
 }
 
+function doOnOrientationChange() {
+    var width = window.innerWidth
+    || document.documentElement.clientWidth
+    || document.body.clientWidth;
+
+    var height = window.innerHeight
+    || document.documentElement.clientHeight
+    || document.body.clientHeight;
+    var change = height - (76 * 2)
+    var bg = document.getElementById('background-vertical');
+    bg.style.minHeight = String(change) + "px"
+    var bgOverlay = document.getElementById('background-vertical-overlay');
+    bgOverlay.style.height = String(document.getElementById("background-vertical").clientHeight) + "px";
+    bgOverlay.style.minHeight = String(change) + "px";
+    document.getElementById('contact-form').style.height = String(change) + "px"
+}
+
+
+window.addEventListener('orientationchange', doOnOrientationChange);
+
+// Initial execution if needed

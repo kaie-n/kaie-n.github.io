@@ -15,8 +15,8 @@ window.onload = function () {
 
     $(window).on("orientationchange", function () {
         var width = window.innerWidth
-|| document.documentElement.clientWidth
-|| document.body.clientWidth;
+        || document.documentElement.clientWidth
+        || document.body.clientWidth;
 
         var height = window.innerHeight
         || document.documentElement.clientHeight
@@ -26,11 +26,12 @@ window.onload = function () {
         bg.style.minHeight = String(change) + "px"
         var bgOverlay = document.getElementById('background-vertical-overlay');
         bgOverlay.style.minHeight = String(document.getElementById("background-vertical").clientHeight) + "px"
+        document.getElementById('contact-form').style.height = String(change) + "px";
     });
   
     var width = window.innerWidth
-|| document.documentElement.clientWidth
-|| document.body.clientWidth;
+    || document.documentElement.clientWidth
+    || document.body.clientWidth;
 
     var height = window.innerHeight
     || document.documentElement.clientHeight
@@ -40,7 +41,7 @@ window.onload = function () {
     var bgOverlay = document.getElementById('background-vertical-overlay');
     bg.style.minHeight = String(change) + "px"
     bgOverlay.style.minHeight = String(document.getElementById("background-vertical").clientHeight) + "px"
-
+    document.getElementById('contact-form').style.height = String(document.getElementById("background-vertical").clientHeight) + "px";
     $(".linkage").on('click', function (e) {
         e.preventDefault();
         var t = $($(this).attr("href"))
@@ -68,6 +69,16 @@ window.onload = function () {
             bg.style.backgroundSize = "cover";
             $("#background-vertical").css('background', 'url(../img/portfolio/background-02.jpg) no-repeat center;');
         }
+        if (u == "#works") {
+            bg.style.background = "url(../img/portfolio/background-03.jpg) no-repeat center"
+            bg.style.backgroundSize = "cover";
+            $("#background-vertical").css('background', 'url(../img/portfolio/background-03.jpg) no-repeat center;');
+        }
+        if (u == "#contact") {
+            bg.style.background = "url(../img/portfolio/background-04.jpg) no-repeat center"
+            bg.style.backgroundSize = "cover";
+            $("#background-vertical").css('background', 'url(../img/portfolio/background-04.jpg) no-repeat center;');
+        }
         
     });
 }
@@ -83,6 +94,7 @@ window.onresize = function () {
     var bg = document.getElementById('background-vertical');
     bg.style.minHeight = String(change) + "px"
     var bgOverlay = document.getElementById('background-vertical-overlay');
-    bgOverlay.style.minHeight = String(document.getElementById("background-vertical").clientHeight) + "px"
+    bgOverlay.style.minHeight = String(change) + "px"
+    document.getElementById('contact-form').style.height = String(change) + "px";
 }
 

@@ -47,7 +47,7 @@
         <div class="row-fluid">
             <div class="col-sm-12 text-center">
                 <a href="#homepage" class="linkage">
-                    <img src="img/logo-56x56.gif" class="logo" onmouseover="this.src = 'img/loader.gif'" onmouseout="    this.src = 'img/logo-56x56.gif'"/>
+                    <img src="img/logo-56x56.gif" class="logo" onmouseover="this.src = 'img/loader.gif'" onmouseout="    this.src = 'img/logo-56x56.gif'" />
                 </a>
             </div>
         </div>
@@ -55,8 +55,8 @@
             <div class="col-sm-12 text-center ">
                 <div class="col-md-4 col-md-offset-4">
                     <a href="#about" class="linkage">ABOUT.</a>
-                    <a href="#" class="linkage">WORKS.</a>
-                    <a href="#" class="linkage">CONTACT.</a>
+                    <a href="#works" class="linkage">WORKS.</a>
+                    <a href="#contact" class="linkage">CONTACT.</a>
                 </div>
             </div>
         </div>
@@ -83,12 +83,75 @@
                             <p><em>“If only you knew the power of the dark side”</em></p>
                             <p>Born in the urban Singapore.</p>
                             <p>
-                                If what you need is [<em>insert project type]</em>, he will some way or some how find 
+                                If what you need is [<em>insert project type]</em>, he will some way or some how find
                                 the necessary things for all your needs.
                             </p>
                             <p>
                                 Let's <a href="mailto:contact@kaienx.com">talk</a> over a cup of <em style="color: #FF82EF;">bandung</em> sometime :)
                             </p>
+                        </div>
+                    </div>
+                    <div id="works" class="table-div-cell hideAfterFade">
+                        <div class="col-md-6 col-md-offset-3">
+                            <p>kaienx</p>
+                            <p><em>“If only you knew the power of the dark side”</em></p>
+                            <p>Born in the urban Singapore.</p>
+                            <p>
+                                If what you need is [<em>insert project type]</em>, he will some way or some how find
+                                the necessary things for all your needs.
+                            </p>
+                            <p>
+                                Let's <a href="mailto:contact@kaienx.com">talk</a> over a cup of <em style="color: #FF82EF;">bandung</em> sometime :)
+                            </p>
+                        </div>
+                    </div>
+                    <div id="contact" class="table-div-cell hideAfterFade">
+                        <div id="contact-form" class="col-md-6 col-md-offset-3 " style="overflow: auto;">
+                            <p>Say hello!</p>
+                            <form class="form-horizontal">
+                                <fieldset>
+
+                                    <!-- Form Name -->
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-md-12 control-label" for="form-name"></label>
+                                        <div class="col-md-12">
+                                            <input id="form-name" name="form-name" type="text" placeholder="NAME" class="form-control input-md" required="">
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-md-12 control-label" for="form-email"></label>
+                                        <div class="col-md-12">
+                                            <input id="form-email" name="form-email" type="text" placeholder="EMAIL" class="form-control input-md" required="">
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-md-12 control-label" for="form-phone"></label>
+                                        <div class="col-md-12">
+                                            <input id="form-phone" name="form-phone" type="text" placeholder="PHONE NUMBER" class="form-control input-md">
+                                        </div>
+                                    </div>
+
+                                    <!-- Textarea -->
+                                    <div class="form-group">
+                                        <label class="col-md-12 control-label" for="form-message"></label>
+                                        <div class="col-md-12">
+                                            <textarea class="form-control" id="form-message" name="form-message" placeholder="SO YOU REAALLY WANNA DRINK BANDUNG YEA?" required=""></textarea>
+                                        </div>
+                                    </div>
+                                    <!-- Button -->
+                                    <div class="form-group">
+                                        <div class="col-md-4">
+                                            <button id="form-submit" name="form-submit" class="btn btn-default">Submit</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+
                         </div>
                     </div>
                 </div>
@@ -192,10 +255,12 @@
                 var img1 = new Image();
                 var img2 = new Image();
                 var img3 = new Image();
+                var img4 = new Image();
 
                 img1.src = "../img/portfolio/background-01.jpg";
                 img2.src = "../img/portfolio/background-02.jpg";
                 img3.src = "../img/portfolio/background-03.jpg";
+                img4.src = "../img/portfolio/background-04.jpg";
             }
         }
         function addLoadEvent(func) {
@@ -214,38 +279,21 @@
         addLoadEvent(preloader);
 
         function doOnOrientationChange() {
-            switch (window.orientation) {
-                case -90:
-                case 90:
-                    var width = window.innerWidth
-|| document.documentElement.clientWidth
-|| document.body.clientWidth;
+            var width = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth;
 
-                    var height = window.innerHeight
-                    || document.documentElement.clientHeight
-                    || document.body.clientHeight;
-                    var change = height - (76 * 2)
-                    var bg = document.getElementById('background-vertical');
-                    bg.style.minHeight = String(change) + "px"
-                    var bgOverlay = document.getElementById('background-vertical-overlay');
-                    bgOverlay.style.minHeight = String(document.getElementById("background-vertical").clientHeight) + "px"
-                    break;
-                default:
-                    var width = window.innerWidth
-|| document.documentElement.clientWidth
-|| document.body.clientWidth;
-
-                    var height = window.innerHeight
-                    || document.documentElement.clientHeight
-                    || document.body.clientHeight;
-                    var change = height - (76 * 2)
-                    var bg = document.getElementById('background-vertical');
-                    bg.style.minHeight = String(change) + "px"
-                    var bgOverlay = document.getElementById('background-vertical-overlay');
-                    bgOverlay.style.minHeight = String(document.getElementById("background-vertical").clientHeight) + "px";
-                    break;
-            }
+            var height = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
+            var change = height - (76 * 2)
+            var bg = document.getElementById('background-vertical');
+            bg.style.minHeight = String(change) + "px"
+            var bgOverlay = document.getElementById('background-vertical-overlay');
+            bgOverlay.style.minHeight = String(document.getElementById("background-vertical").clientHeight) + "px";
+            document.getElementById('contact-form').style.height = String(change) + "px"
         }
+
 
         window.addEventListener('orientationchange', doOnOrientationChange);
 

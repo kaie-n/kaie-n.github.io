@@ -27,6 +27,7 @@ window.onload = function () {
         var bgOverlay = document.getElementById('background-vertical-overlay');
         bgOverlay.style.minHeight = String(document.getElementById("background-vertical").clientHeight) + "px"
         document.getElementById('contact-form').style.height = String(change) + "px";
+        alert("THIS ORIENTATION JQUEY")
     });
   
     var width = window.innerWidth
@@ -94,7 +95,7 @@ window.onresize = function () {
     var bg = document.getElementById('background-vertical');
     bg.style.minHeight = String(change) + "px"
     var bgOverlay = document.getElementById('background-vertical-overlay');
-    bgOverlay.style.minHeight = String(change) + "px"
+    bgOverlay.style.height = String(change) + "px"
     document.getElementById('contact-form').style.height = String(change) + "px";
 }
 

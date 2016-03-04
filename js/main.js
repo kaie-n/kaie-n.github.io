@@ -13,22 +13,6 @@ window.onload = function () {
     $('.overlay-center').addClass('overlay-center-loaded')
     $('#overlay').delay(2000).fadeOut();
 
-    $(window).on("orientationchange", function () {
-        var width = window.innerWidth
-        || document.documentElement.clientWidth
-        || document.body.clientWidth;
-
-        var height = window.innerHeight
-        || document.documentElement.clientHeight
-        || document.body.clientHeight;
-        var change = height - (76 * 2)
-        var bg = document.getElementById('background-vertical');
-        bg.style.minHeight = String(change) + "px"
-        var bgOverlay = document.getElementById('background-vertical-overlay');
-        bgOverlay.style.minHeight = String(document.getElementById("background-vertical").clientHeight) + "px"
-        document.getElementById('contact-form').style.height = String(change) + "px";
-        alert("THIS ORIENTATION JQUEY")
-    });
   
     var width = window.innerWidth
     || document.documentElement.clientWidth

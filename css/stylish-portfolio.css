@@ -5,7 +5,10 @@
  */
 
 /* Global Styles */
-
+#preload-01 { background: url(../img/portfolio/background-01.jpg) no-repeat -9999px -9999px; }
+#preload-02 { background: url(../img/portfolio/background-02.jpg) no-repeat -9999px -9999px; }
+#preload-03 { background: url(../img/portfolio/background-03.jpg) no-repeat -9999px -9999px; }
+#preload-04 { background: url(../img/portfolio/background-04.jpg) no-repeat -9999px -9999px; }
 html,
 body {
     width: 100%;

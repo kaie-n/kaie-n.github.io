@@ -15,28 +15,9 @@ window.onresize = function () {
 
 window.onload = function () {
     var bg = document.getElementById('background-vertical');
-    if (window.location.hash == "#thanks") {
+    
         $('.overlay-center').addClass('overlay-center-loaded')
         $('#overlay').delay(2000).fadeOut();
-        $("div.show-time").each(function () {
-            if ($("div").hasClass("show-time")) {
-                $('div.show-time').fadeOut(250, function () {
-                    $('div.show-time').removeClass("show-time")
-                    $('#thanks').fadeToggle(250, function () {
-                        $('#thanks').addClass("show-time")
-                    });
-                    $('#thanks').css("display", "table-cell");
-                });
-            }
-        });
-        bg.style.background = "url(../img/portfolio/background-05.jpg) no-repeat center"
-        bg.style.backgroundSize = "cover";
-        $("#background-vertical").css('background', 'url(../img/portfolio/background-05.jpg) no-repeat center;');
-    }
-    else {
-        $('.overlay-center').addClass('overlay-center-loaded')
-        $('#overlay').delay(2000).fadeOut();
-    }
     // change background yo
     $(".linkage").on('click', function (e) {
         e.preventDefault();
@@ -83,17 +64,16 @@ window.onload = function () {
     $("#form-contact").submit(function (evt) {
         evt.preventDefault();
 
-        var userName = $("#form-name").text();
-        var userSubject = $("#form-phone").text();
-        var userEmail = $("#form-email").text();
-        var userMessage = $("#form-message").text();
-
+        var userName = $("#form-name").val();
+        var userPhone = $("#form-phone").val();
+        var userEmail = $("#form-email").val();
+        var userMessage = $("#form-message").val();
         $.ajax({
             url: "//formspree.io/contact@kaienx.com",
             method: "POST",
             data: {
                 name: userName,
-                subject: userSubject,
+                phone: userPhone,
                 email: userEmail,
                 message: userMessage
             },
@@ -101,9 +81,14 @@ window.onload = function () {
                 'Accept': 'application/json',
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            dataType: "json"
+            dataType: "json",
+            error: function (err) {
+                console.log(err);
+            }
         }).done(function () {
-            $("#contact-form").append("<br><br><p>Your message has been sent.</p><br><p>Thank you!</p>");
+            $("#contact-form").css('display', 'none');
+            $("#contact-form-success").css('display','block')
+            $("#contact-form-success").append("<p>Your message has been sent.</p><p>You may have a sip of coffee if you may while waiting for my reply.</p><br><p>Thank you!</p>");
         });
     });
 
@@ -152,6 +137,7 @@ function doOnOrientationChange() {
     bgOverlay.style.height = String(document.getElementById("background-vertical").clientHeight) + "px";
     //bgOverlay.style.minHeight = String(change) + "px";
     document.getElementById('contact-form').style.height = String(change) + "px"
+    
 }
 
 

@@ -32,15 +32,19 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- Custom Theme JavaScript -->
+    <script>
+       
+    </script>
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="js/wow.min.js"></script>
     <script src="js/main.js"></script>
+  
 </head>
 
 <body>
     <div id="overlay">
         <div class="overlay-center">
-            <img src="img/loader.gif" style="margin:0 auto;"></img>
+            <img src="img/loader.gif" class="logo" style="margin:0 auto;"></img>
         </div>
     </div>
     <div id="top-nav" class="wow fadeIn">
@@ -115,10 +119,10 @@
                         <div id="contact-form" class="col-md-6 col-md-offset-3 " style="overflow-x:hidden;overflow-y: auto;">
                             <p></p>
                             <p>Say hello!</p>
-                            <form class="form-horizontal" action="//formspree.io/contact@kaienx.com" method="POST">
+                            <form id="form-contact" class="form-horizontal" action="//formspree.io/contact@kaienx.com" method="POST">
                                 <fieldset>
                                     <input type="text" name="_gotcha" style="display:none" />
-                                    <input type="hidden" name="_next" value="#thanks" />
+                                    <!--<input type="hidden" name="_next" value="#thanks" />-->
                                     <!-- Form Name -->
                                     <!-- Text input-->
                                     <div class="form-group">
@@ -286,7 +290,7 @@
         }
         addLoadEvent(preloader);
 
-       
+
     </script>
 
 </body>

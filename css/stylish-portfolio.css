@@ -47,7 +47,7 @@ body {
 #background-vertical-overlay {
     position: absolute;
     width: 100%;
-    min-height: 554px;
+    /*min-height: 554px;*/
     background-color: #000;
     opacity: 0.6;
 }
@@ -274,7 +274,9 @@ a.linkage:hover, a.linkage:focus {
     visibility: hidden;
 }
 
-
+.logo{
+    width:50px;
+}
 
 /*.logo-overlay:active {
     transform-origin: 85px 165px 0px; transform: matrix(0.9063, -0.42261, 0.42261, 0.9063, 0, 0);
@@ -447,14 +449,14 @@ address {
     left: 50%;
     text-align: center;
     vertical-align: middle;
-    margin-top: -28px;
-    margin-left: -28px;
+    margin-top: -25px;
+    margin-left: -25px;
 }
 
 .overlay-center-loaded {
-    margin-top: -28px;
-    margin-left: -28px;
-    top: 28px;
+    margin-top: -25px;
+    margin-left: -25px;
+    top: 25px;
 }
 
 /* portrait */

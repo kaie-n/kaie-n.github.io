@@ -7,26 +7,37 @@ var share
 var navLeft
 var navRight
 
+window.addEventListener('orientationchange', doOnOrientationChange);
 
+window.onresize = function () {
+    resizeShits();
+}
 
 window.onload = function () {
-    $('.overlay-center').addClass('overlay-center-loaded')
-    $('#overlay').delay(2000).fadeOut();
-
-  
-    var width = window.innerWidth
-    || document.documentElement.clientWidth
-    || document.body.clientWidth;
-
-    var height = window.innerHeight
-    || document.documentElement.clientHeight
-    || document.body.clientHeight;
-    var change = height - (76 * 2)
     var bg = document.getElementById('background-vertical');
-    var bgOverlay = document.getElementById('background-vertical-overlay');
-    bg.style.minHeight = String(change) + "px"
-    bgOverlay.style.minHeight = String(document.getElementById("background-vertical").clientHeight) + "px"
-    document.getElementById('contact-form').style.height = String(document.getElementById("background-vertical").clientHeight) + "px";
+    if (window.location.hash == "#thanks") {
+        $('.overlay-center').addClass('overlay-center-loaded')
+        $('#overlay').delay(2000).fadeOut();
+        $("div.show-time").each(function () {
+            if ($("div").hasClass("show-time")) {
+                $('div.show-time').fadeOut(250, function () {
+                    $('div.show-time').removeClass("show-time")
+                    $('#thanks').fadeToggle(250, function () {
+                        $('#thanks').addClass("show-time")
+                    });
+                    $('#thanks').css("display", "table-cell");
+                });
+            }
+        });
+        bg.style.background = "url(../img/portfolio/background-05.jpg) no-repeat center"
+        bg.style.backgroundSize = "cover";
+        $("#background-vertical").css('background', 'url(../img/portfolio/background-05.jpg) no-repeat center;');
+    }
+    else {
+        $('.overlay-center').addClass('overlay-center-loaded')
+        $('#overlay').delay(2000).fadeOut();
+    }
+    // change background yo
     $(".linkage").on('click', function (e) {
         e.preventDefault();
         var t = $($(this).attr("href"))
@@ -66,11 +77,44 @@ window.onload = function () {
         }
         
     });
+
+    resizeShits();
+
+    $("#form-contact").submit(function (evt) {
+        evt.preventDefault();
+
+        var userName = $("#form-name").text();
+        var userSubject = $("#form-phone").text();
+        var userEmail = $("#form-email").text();
+        var userMessage = $("#form-message").text();
+
+        $.ajax({
+            url: "//formspree.io/contact@kaienx.com",
+            method: "POST",
+            data: {
+                name: userName,
+                subject: userSubject,
+                email: userEmail,
+                message: userMessage
+            },
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            dataType: "json"
+        }).done(function () {
+            $("#contact-form").append("<br><br><p>Your message has been sent.</p><br><p>Thank you!</p>");
+        });
+    });
+
 }
-window.onresize = function () {
+
+
+
+function resizeShits() {
     var width = window.innerWidth
-|| document.documentElement.clientWidth
-|| document.body.clientWidth;
+    || document.documentElement.clientWidth
+    || document.body.clientWidth;
 
     var height = window.innerHeight
     || document.documentElement.clientHeight
@@ -79,8 +123,18 @@ window.onresize = function () {
     var bg = document.getElementById('background-vertical');
     bg.style.minHeight = String(change) + "px"
     var bgOverlay = document.getElementById('background-vertical-overlay');
-    bgOverlay.style.height = String(change) + "px"
+    if(change == bg.clientHeight){
+     bgOverlay.style.height = String(change) + "px"
+    }
+    else {
+        bgOverlay.style.height = String(bg.clientHeight) + "px";
+    }
     document.getElementById('contact-form').style.height = String(change) + "px";
+
+    // change form height accordingly :D
+    var number = Math.round(0.473 * bg.clientHeight);
+    var formHeight = String(number) + "px";
+    $('#form-message').css('height', formHeight)
 }
 
 function doOnOrientationChange() {
@@ -96,11 +150,8 @@ function doOnOrientationChange() {
     bg.style.minHeight = String(change) + "px"
     var bgOverlay = document.getElementById('background-vertical-overlay');
     bgOverlay.style.height = String(document.getElementById("background-vertical").clientHeight) + "px";
-    bgOverlay.style.minHeight = String(change) + "px";
+    //bgOverlay.style.minHeight = String(change) + "px";
     document.getElementById('contact-form').style.height = String(change) + "px"
 }
 
 
-window.addEventListener('orientationchange', doOnOrientationChange);
-
-// Initial execution if needed

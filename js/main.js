@@ -5,9 +5,10 @@ var loadOnce = false;
 var index = 0;
 var currentVideo;
 var divIndex = {
-    "id": ["#homepage", "#about", "#works", "#contact"]
+    "id": ["#homepage", "#about", "#works", "#contact", "#works"]
 
 };
+var bg;
 $.mobile.autoInitializePage = false;
 window.addEventListener('orientationchange', doOnOrientationChange);
 
@@ -16,11 +17,11 @@ window.onresize = function () {
 }
 
 window.onload = function () {
-    var bg = document.getElementById('background-vertical');
-
+    bg = document.getElementById('background-vertical');
+    currentVideo = "";
     $('.overlay-center').addClass('overlay-center-loaded')
     $('#overlay').delay(2000).fadeOut(400, function () {
-        
+
     });
     // change background yo
     $(".linkage").on('click', function (e) {
@@ -41,7 +42,7 @@ window.onload = function () {
             });
         }
         changeBackground(u, bg);
-     
+        currentVideo = "";
     });
     $("#works-portfolio").on('click', '.linkage2', function (e) {
         e.preventDefault();
@@ -62,7 +63,7 @@ window.onload = function () {
         }
         changeBackground(u, bg);
         currentVideo = u + " iframe";
-        console.log()
+        index = 4;
     });
 
     resizeShits();
@@ -100,61 +101,25 @@ window.onload = function () {
 
     // swipe stuff
     $(".text-vertical-center").on("swipeleft", function () {
-        if (index == 3) {
-            index = 0
-            changeBackground(divIndex.id[index], bg);
+        if (index != 4) {
+            index++
+            changePage(false);
         }
         else {
-            if (index < 3) {
-                index++;
-                changeBackground(divIndex.id[index], bg);
-            }
+            index = 2;
+            changePage(true);
         }
-        var t = $(divIndex.id[index]);
-        if (t.hasClass("show-time") == false) {
-            $("div.show-time").each(function () {
-                if ($("div").hasClass("show-time")) {
-                    $('div.show-time').fadeOut(250, function () {
-                        $('div.show-time').removeClass("show-time")
-                        t.fadeToggle(250, function () {
-                            t.addClass("show-time")
-                        });
-                        t.css("display", "table-cell");
-                    });
-                }
-            });
-        }
-        
     });
     $(".text-vertical-center").on("swiperight", function () {
-        if (index == 0) {
-            index = 3
-            changeBackground(divIndex.id[index], bg);
+        if (index != 4) {
+            index--;
+            changePage(false);
         }
         else {
-            if (index > 0) {
-                index--;
-                changeBackground(divIndex.id[index], bg);
-            }
+            index = 2;
+            changePage(true);
         }
-        var t = $(divIndex.id[index]);
-        if (t.hasClass("show-time") == false) {
-            $("div.show-time").each(function () {
-                if ($("div").hasClass("show-time")) {
-                    $('div.show-time').fadeOut(250, function () {
-                        $('div.show-time').removeClass("show-time")
-                        t.fadeToggle(250, function () {
-                            t.addClass("show-time")
-                        });
-                        t.css("display", "table-cell");
-                    });
-                }
-            });
-        }
-
     });
-
-   
 }
 
 
@@ -164,7 +129,7 @@ function loadPosts() {
     var key = "api_key=nSlp93ivVTteusCXvKX0o5PCnTo9fIhx1elpCuLTLCj97xlcE5";
     var api = "https://api.tumblr.com/v2/blog/kaien-x2.tumblr.com/";
     var retrieve_more = function (offset) {
-        $.getJSON(api + "posts/video?callback=?&filter=video&limit=20&offset=" + offset + "&" + key, function (data) {
+        var t_data = $.getJSON(api + "posts/video?callback=?&filter=video&limit=20&offset=" + offset + "&" + key, function (data) {
             $.each(data.response.posts, function (i, item) {
                 var content = item.player[2].embed_code;
                 var caption = item.caption;
@@ -172,7 +137,7 @@ function loadPosts() {
                 var numb = source_url.match(/\d/g);
                 numb = numb.join("");
                 var source_id = "vimeo-" + numb;
-                $(".table-div").append('<div id="' + source_id + '" class="table-div-cell hideAfterFade"> <div class="col-md-6 col-md-offset-3"><p>' + caption + '</p>'+ content + '</div></div>')
+                $(".table-div").append('<div id="' + source_id + '" class="table-div-cell hideAfterFade"> <div class="col-md-6 col-md-offset-3"><p>' + caption + '</p>' + content + '</div></div>')
 
                 $.getJSON('http://www.vimeo.com/api/v2/video/' + numb + '.json?callback=?', { format: "json" }, function (data) {
                     $("#works-portfolio").append('<div class="col-md-4"><a href="#' + source_id + '" class="linkage2"><img id="vimeo-thumbs-' + numb + '" src="' + data[0].thumbnail_large + '" style="width:100%"/></a></div>')
@@ -185,16 +150,48 @@ function loadPosts() {
                 retrieve_more(offset + 20);
             }
         });
+
     };
     retrieve_more(0);
-    
+
+}
+
+function changePage(bool) {
+    if (bool == false) {
+        if (index < 0) {
+            index = 3;
+        }
+        else {
+            if (index > 3) {
+                index = 0;
+            }
+        }
+    }
+    var t = $(divIndex.id[index]);
+    changeBackground(divIndex.id[index], bg);
+    if (t.hasClass("show-time") == false) {
+        $("div.show-time").each(function () {
+            if ($("div").hasClass("show-time")) {
+                $('div.show-time').fadeOut(250, function () {
+                    $('div.show-time').removeClass("show-time")
+                    t.fadeToggle(250, function () {
+                        t.addClass("show-time")
+                    });
+                    t.css("display", "table-cell");
+                });
+            }
+        });
+    }
+
 }
 
 function pauseVideos() {
-    var temp = $(currentVideo).attr('src');
-    $(currentVideo).attr('src', '');
-    $(currentVideo).attr('src', temp)
-    
+    if (currentVideo != "") {
+        var temp = $(currentVideo).attr('src');
+        $(currentVideo).attr('src', '');
+        $(currentVideo).attr('src', temp)
+    }
+    currentVideo = "";
 }
 
 function resizeVideos() {
@@ -215,7 +212,7 @@ function resizeVideos() {
 }
 
 //end of portfolio stuffs
-function changeBackground(u,bg) {
+function changeBackground(u, bg) {
     if (u == "#homepage") {
         index = 0;
         bg.style.background = "url(../img/portfolio/background-01.jpg) no-repeat center"
@@ -233,7 +230,7 @@ function changeBackground(u,bg) {
         bg.style.background = "url(../img/portfolio/background-03.jpg) no-repeat center"
         bg.style.backgroundSize = "cover";
         $("#background-vertical").css('background', 'url(../img/portfolio/background-03.jpg) no-repeat center;');
-        if(loadOnce == false){
+        if (loadOnce == false) {
             loadPosts();
             loadOnce = true;
         }
@@ -279,7 +276,7 @@ function resizeShits() {
     var number = Math.round(0.473 * bg.clientHeight);
     var formHeight = String(number) + "px";
     $('#form-message').css('height', formHeight)
-    
+
 }
 
 
@@ -298,7 +295,13 @@ function doOnOrientationChange() {
     bgOverlay.style.height = String(document.getElementById("background-vertical").clientHeight) + "px";
     //bgOverlay.style.minHeight = String(change) + "px";
     document.getElementById('contact-form').style.height = String(change) + "px"
-
+    if (width < 992) {
+        document.getElementById('works-portfolio').style.height = String(change) + "px";
+    }
+    else {
+        document.getElementById('works-portfolio').style.height = "";
+    }
+    resizeVideos();
 }
 
 

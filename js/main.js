@@ -1,12 +1,14 @@
 
 wow = new WOW()
 wow.init();
+var loadOnce = false;
+var index = 0;
+var currentVideo;
+var divIndex = {
+    "id": ["#homepage", "#about", "#works", "#contact"]
 
-var logo
-var share
-var navLeft
-var navRight
-
+};
+$.mobile.autoInitializePage = false;
 window.addEventListener('orientationchange', doOnOrientationChange);
 
 window.onresize = function () {
@@ -15,9 +17,11 @@ window.onresize = function () {
 
 window.onload = function () {
     var bg = document.getElementById('background-vertical');
-    
-        $('.overlay-center').addClass('overlay-center-loaded')
-        $('#overlay').delay(2000).fadeOut();
+
+    $('.overlay-center').addClass('overlay-center-loaded')
+    $('#overlay').delay(2000).fadeOut(400, function () {
+        
+    });
     // change background yo
     $(".linkage").on('click', function (e) {
         e.preventDefault();
@@ -36,27 +40,29 @@ window.onload = function () {
                 }
             });
         }
-        if (u == "#homepage") {
-            bg.style.background = "url(../img/portfolio/background-01.jpg) no-repeat center"
-            bg.style.backgroundSize = "cover";
-            $("#background-vertical").css('background', 'url(../img/portfolio/background-01.jpg) no-repeat center;');
+        changeBackground(u, bg);
+     
+    });
+    $("#works-portfolio").on('click', '.linkage2', function (e) {
+        e.preventDefault();
+        var t = $($(this).attr("href"))
+        var u = $(this).attr("href");
+        if (t.hasClass("show-time") == false) {
+            $("div.show-time").each(function () {
+                if ($("div").hasClass("show-time")) {
+                    $('div.show-time').fadeOut(250, function () {
+                        $('div.show-time').removeClass("show-time")
+                        t.fadeToggle(250, function () {
+                            t.addClass("show-time")
+                        });
+                        t.css("display", "table-cell");
+                    });
+                }
+            });
         }
-        if (u == "#about") {
-            bg.style.background = "url(../img/portfolio/background-02.jpg) no-repeat center"
-            bg.style.backgroundSize = "cover";
-            $("#background-vertical").css('background', 'url(../img/portfolio/background-02.jpg) no-repeat center;');
-        }
-        if (u == "#works") {
-            bg.style.background = "url(../img/portfolio/background-03.jpg) no-repeat center"
-            bg.style.backgroundSize = "cover";
-            $("#background-vertical").css('background', 'url(../img/portfolio/background-03.jpg) no-repeat center;');
-        }
-        if (u == "#contact" || u == "#thanks") {
-            bg.style.background = "url(../img/portfolio/background-04.jpg) no-repeat center"
-            bg.style.backgroundSize = "cover";
-            $("#background-vertical").css('background', 'url(../img/portfolio/background-04.jpg) no-repeat center;');
-        }
-        
+        changeBackground(u, bg);
+        currentVideo = u + " iframe";
+        console.log()
     });
 
     resizeShits();
@@ -87,16 +93,164 @@ window.onload = function () {
             }
         }).done(function () {
             $("#contact-form").css('display', 'none');
-            $("#contact-form-success").css('display','block')
+            $("#contact-form-success").css('display', 'block')
             $("#contact-form-success").append("<p>Your message has been sent.</p><p>You may have a sip of coffee if you may while waiting for my reply.</p><br><p>Thank you!</p>");
         });
     });
 
+    // swipe stuff
+    $(".text-vertical-center").on("swipeleft", function () {
+        if (index == 3) {
+            index = 0
+            changeBackground(divIndex.id[index], bg);
+        }
+        else {
+            if (index < 3) {
+                index++;
+                changeBackground(divIndex.id[index], bg);
+            }
+        }
+        var t = $(divIndex.id[index]);
+        if (t.hasClass("show-time") == false) {
+            $("div.show-time").each(function () {
+                if ($("div").hasClass("show-time")) {
+                    $('div.show-time').fadeOut(250, function () {
+                        $('div.show-time').removeClass("show-time")
+                        t.fadeToggle(250, function () {
+                            t.addClass("show-time")
+                        });
+                        t.css("display", "table-cell");
+                    });
+                }
+            });
+        }
+        
+    });
+    $(".text-vertical-center").on("swiperight", function () {
+        if (index == 0) {
+            index = 3
+            changeBackground(divIndex.id[index], bg);
+        }
+        else {
+            if (index > 0) {
+                index--;
+                changeBackground(divIndex.id[index], bg);
+            }
+        }
+        var t = $(divIndex.id[index]);
+        if (t.hasClass("show-time") == false) {
+            $("div.show-time").each(function () {
+                if ($("div").hasClass("show-time")) {
+                    $('div.show-time').fadeOut(250, function () {
+                        $('div.show-time').removeClass("show-time")
+                        t.fadeToggle(250, function () {
+                            t.addClass("show-time")
+                        });
+                        t.css("display", "table-cell");
+                    });
+                }
+            });
+        }
+
+    });
+
+   
 }
 
 
 
+function loadPosts() {
+
+    var key = "api_key=nSlp93ivVTteusCXvKX0o5PCnTo9fIhx1elpCuLTLCj97xlcE5";
+    var api = "https://api.tumblr.com/v2/blog/kaien-x2.tumblr.com/";
+    var retrieve_more = function (offset) {
+        $.getJSON(api + "posts/video?callback=?&filter=video&limit=20&offset=" + offset + "&" + key, function (data) {
+            $.each(data.response.posts, function (i, item) {
+                var content = item.player[2].embed_code;
+                var caption = item.caption;
+                var source_url = item.source_url;
+                var numb = source_url.match(/\d/g);
+                numb = numb.join("");
+                var source_id = "vimeo-" + numb;
+                $(".table-div").append('<div id="' + source_id + '" class="table-div-cell hideAfterFade"> <div class="col-md-6 col-md-offset-3"><p>' + caption + '</p>'+ content + '</div></div>')
+
+                $.getJSON('http://www.vimeo.com/api/v2/video/' + numb + '.json?callback=?', { format: "json" }, function (data) {
+                    $("#works-portfolio").append('<div class="col-md-4"><a href="#' + source_id + '" class="linkage2"><img id="vimeo-thumbs-' + numb + '" src="' + data[0].thumbnail_large + '" style="width:100%"/></a></div>')
+                });
+                //vimeoLoadingThumb(numb);
+                resizeVideos()
+            });
+
+            if (data.response.posts.length == 20) {
+                retrieve_more(offset + 20);
+            }
+        });
+    };
+    retrieve_more(0);
+    
+}
+
+function pauseVideos() {
+    var temp = $(currentVideo).attr('src');
+    $(currentVideo).attr('src', '');
+    $(currentVideo).attr('src', temp)
+    
+}
+
+function resizeVideos() {
+
+    var width = window.innerWidth
+   || document.documentElement.clientWidth
+   || document.body.clientWidth;
+
+    var height = window.innerHeight
+    || document.documentElement.clientHeight
+    || document.body.clientHeight;
+    var change = height - (76 * 2);
+    var vid = document.getElementsByTagName('iframe');
+    for (var i = 0; i < vid.length; i++) {
+        vid[i].height = change - Math.round(change * 0.12664259927797833);
+        vid[i].id = "vimeo-video-" + i;
+    }
+}
+
+//end of portfolio stuffs
+function changeBackground(u,bg) {
+    if (u == "#homepage") {
+        index = 0;
+        bg.style.background = "url(../img/portfolio/background-01.jpg) no-repeat center"
+        bg.style.backgroundSize = "cover";
+        $("#background-vertical").css('background', 'url(../img/portfolio/background-01.jpg) no-repeat center;');
+    }
+    if (u == "#about") {
+        index = 1;
+        bg.style.background = "url(../img/portfolio/background-02.jpg) no-repeat center"
+        bg.style.backgroundSize = "cover";
+        $("#background-vertical").css('background', 'url(../img/portfolio/background-02.jpg) no-repeat center;');
+    }
+    if (u == "#works") {
+        index = 2;
+        bg.style.background = "url(../img/portfolio/background-03.jpg) no-repeat center"
+        bg.style.backgroundSize = "cover";
+        $("#background-vertical").css('background', 'url(../img/portfolio/background-03.jpg) no-repeat center;');
+        if(loadOnce == false){
+            loadPosts();
+            loadOnce = true;
+        }
+        pauseVideos();
+    }
+    if (u == "#contact" || u == "#thanks") {
+        index = 3;
+        bg.style.background = "url(../img/portfolio/background-04.jpg) no-repeat center"
+        bg.style.backgroundSize = "cover";
+        $("#background-vertical").css('background', 'url(../img/portfolio/background-04.jpg) no-repeat center;');
+    }
+
+}
+
+
 function resizeShits() {
+    resizeVideos();
     var width = window.innerWidth
     || document.documentElement.clientWidth
     || document.body.clientWidth;
@@ -108,19 +262,26 @@ function resizeShits() {
     var bg = document.getElementById('background-vertical');
     bg.style.minHeight = String(change) + "px"
     var bgOverlay = document.getElementById('background-vertical-overlay');
-    if(change == bg.clientHeight){
-     bgOverlay.style.height = String(change) + "px"
+    if (change == bg.clientHeight) {
+        bgOverlay.style.height = String(change) + "px"
     }
     else {
         bgOverlay.style.height = String(bg.clientHeight) + "px";
     }
     document.getElementById('contact-form').style.height = String(change) + "px";
-
+    if (width < 992) {
+        document.getElementById('works-portfolio').style.height = String(change) + "px";
+    }
+    else {
+        document.getElementById('works-portfolio').style.height = "";
+    }
     // change form height accordingly :D
     var number = Math.round(0.473 * bg.clientHeight);
     var formHeight = String(number) + "px";
     $('#form-message').css('height', formHeight)
+    
 }
+
 
 function doOnOrientationChange() {
     var width = window.innerWidth
@@ -137,7 +298,7 @@ function doOnOrientationChange() {
     bgOverlay.style.height = String(document.getElementById("background-vertical").clientHeight) + "px";
     //bgOverlay.style.minHeight = String(change) + "px";
     document.getElementById('contact-form').style.height = String(change) + "px"
-    
+
 }
 
 

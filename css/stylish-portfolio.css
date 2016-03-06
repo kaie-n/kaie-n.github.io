@@ -80,6 +80,10 @@ body {
         text-align: center;
         font-size: 20px;
     }
+    .overflow-scroll {
+        overflow-x:hidden; 
+        overflow-y: auto;
+    }
 /* Custom Button Styles */
 
 .btn-dark {
@@ -522,4 +526,14 @@ address {
     .margin-top-20 {
         width: 50px;
     }
+}
+iframe {
+    width: 100%;
+}
+
+#works-portfolio div {
+    padding: 15px;
+}
+clear-margin {
+    margin: 0 0 0 0 !important;
 }

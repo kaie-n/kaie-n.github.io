@@ -24,7 +24,6 @@
     <!-- Custom CSS -->
     <link href="css/stylish-portfolio.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -32,13 +31,11 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- Custom Theme JavaScript -->
-    <script>
-       
-    </script>
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <!-- Include the jQuery Mobile library -->
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="js/wow.min.js"></script>
     <script src="js/main.js"></script>
-  
 </head>
 
 <body>
@@ -51,7 +48,7 @@
         <div class="row-fluid">
             <div class="col-sm-12 text-center">
                 <a href="#homepage" class="linkage">
-                    <img id="logo-resizer" src="img/logo-56x56.gif" class="logo" onmouseover="this.src = 'img/loader.gif'" onmouseout="    this.src = 'img/logo-56x56.gif'" />
+                    <img id="logo-resizer" src="img/logo-56x56.gif" class="logo" onmouseover="this.src = 'img/loader.gif'" onmouseout=" this.src='img/logo-56x56.gif' " />
                 </a>
             </div>
         </div>
@@ -74,6 +71,7 @@
                     <div id="homepage" class="table-div-cell show-time">
                         <div class="col-md-6 col-md-offset-3">
                             <p><em>“I have bigger dreams”</em></p>
+                            
                             <!--<p>
                                 An aspiring web-developer, he is versatile and flexible in his line of work. <br />
                                 During his free time, he goes out to shoot and edit nonsensical pictures while
@@ -96,14 +94,13 @@
                         </div>
                     </div>
                     <div id="works" class="table-div-cell hideAfterFade">
-                        <div class="col-md-6 col-md-offset-3">
-                            <p>UNDER CONSTRUCTION </p>
-                            <p><em>(maybe?)</em></p>
+                        <div id="works-portfolio" class="col-md-12 overflow-scroll" >
+                            
                         </div>
                     </div>
                     <div id="contact" class="table-div-cell hideAfterFade">
                         <div id="contact-form-success" class="col-md-6 col-md-offset-3 hideAfterFade"></div>
-                        <div id="contact-form" class="col-md-6 col-md-offset-3 " style="overflow-x:hidden;overflow-y: auto;">
+                        <div id="contact-form" class="col-md-6 col-md-offset-3 overflow-scroll">
                             <p></p>
                             <p>Say hello!</p>
                             <form id="form-contact" class="form-horizontal" action="//formspree.io/contact@kaienx.com" method="POST">
@@ -150,65 +147,12 @@
                                     </div>
                                 </fieldset>
                             </form>
-
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-        <div style="display:none;">
 
-            <div id="logo">
-                <div id="logo-overlay" class="logo-overlay"></div>
-            </div>
-            <div class="row-fluid">
-                <div id="nav-left" class="col-sm-5 text-right hideAfterFade">
-                    <br />
-                    <div class="row-fluid">I have better dreams <i class="fa fa-cloud fa-lg"></i></div><br />
-                    <div class="row-fluid">Hello, it's me <i class="fa fa-envelope-o fa-lg"></i></div><br />
-                    <div class="row-fluid">Curriculum Vitae <i class="fa fa-paragraph fa-lg"></i></div><br />
-                </div>
-                <div class="col-sm-2"></div>
-                <div id="nav-right" class="col-sm-5 text-left hideAfterFade">
-                    <br />
-                    <div class="row-fluid">Photography</div><br />
-                    <div class="row-fluid">Videography</div><br />
-                    <div class="row-fluid">Web Development</div><br />
-                </div>
-            </div>
-            <div class="row-fluid">
-
-                <div id="share" class="share hideAfterFade">
-                    <ul>
-                        <li>
-                            <div>
-                                <a href="http://facebook.com/kaienx" alt="Facebook"><i class="fa fa-facebook"></i></a>
-                                <svg viewBox="0 0 100.4 100.1"><path class="st0" d="M50.2,0.4l49.5,49.5L50.2,99.3L0.7,49.9L50.2,0.4" style="stroke-dashoffset: 0px; stroke-dasharray: 279.873px;"></path></svg>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="http://instagram.com/kaienx" alt="Instagram"><i class="fa fa-instagram"></i></a>
-                                <svg viewBox="0 0 100.4 100.1"><path class="st0" d="M50.2,0.4l49.5,49.5L50.2,99.3L0.7,49.9L50.2,0.4" style="stroke-dashoffset: 0px; stroke-dasharray: 279.873px;"></path></svg>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="http://twitter.com/kaien__" alt="Twitter"><i class="fa fa-twitter"></i></a>
-                                <svg viewBox="0 0 100.4 100.1"><path class="st0" d="M50.2,0.4l49.5,49.5L50.2,99.3L0.7,49.9L50.2,0.4" style="stroke-dashoffset: 0px; stroke-dasharray: 279.873px;"></path></svg>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="https://vimeo.com/kaienxx" alt="Vimeo"><i class="fa fa-vimeo-square"></i></a>
-                                <svg viewBox="0 0 100.4 100.1"><path class="st0" d="M50.2,0.4l49.5,49.5L50.2,99.3L0.7,49.9L50.2,0.4" style="stroke-dashoffset: 0px; stroke-dasharray: 279.873px;"></path></svg>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </header>
 
     <!-- Footer -->

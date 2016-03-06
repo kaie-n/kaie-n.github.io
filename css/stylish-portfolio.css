@@ -4,6 +4,9 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+
+
+
 /* Global Styles */
 #preload-01 { background: url(../img/portfolio/background-01.jpg) no-repeat -9999px -9999px; }
 #preload-02 { background: url(../img/portfolio/background-02.jpg) no-repeat -9999px -9999px; }
@@ -40,9 +43,12 @@ body {
 #background-vertical {
     min-height: 62%;
     background: url(../img/portfolio/background-01.jpg) no-repeat center;
-    background-size: cover;
+    background-size: cover !important;
     background-color: #333;
     height: 62%;
+    -webkit-transition: background 500ms ease;
+    -moz-transition: background 500ms ease;
+    -o-transition: background 500ms ease;
     transition: background .5s ease;
     visibility: hidden;
 }

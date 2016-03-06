@@ -270,7 +270,7 @@ function resizeShits() {
         document.getElementById('works-portfolio').style.height = String(change) + "px";
     }
     else {
-        document.getElementById('works-portfolio').style.height = "";
+        document.getElementById('works-portfolio').style.height = String(change) + "px";
     }
     // change form height accordingly :D
     var number = Math.round(0.473 * bg.clientHeight);

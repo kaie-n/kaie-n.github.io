@@ -216,6 +216,7 @@ function changePage(bool1, bool2) {
             }
         }
         t = $(portfolioIndex[index2]);
+        pauseVideos();
     }
     if (t.hasClass("show-time") == false) {
         $("div.show-time").each(function () {

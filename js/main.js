@@ -216,7 +216,9 @@ function changePage(bool1, bool2) {
             }
         }
         t = $(portfolioIndex[index2]);
+        
         pauseVideos();
+        currentVideo = portfolioIndex[index2] + " iframe"
     }
     if (t.hasClass("show-time") == false) {
         $("div.show-time").each(function () {

@@ -15,10 +15,6 @@ function typeWriter(text, n) {
 }
 
 $(document).ready(function () {
-    setTimeout(function() {
-        var text = $('.quote').data('text');
-
-        typeWriter(text, 0);
-    }, 3000);
+    
     
 });

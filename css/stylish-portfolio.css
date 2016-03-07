@@ -109,6 +109,9 @@ body {
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
 }
+.wow {
+   visibility: hidden;
+}
 /* Custom Button Styles */
 
 .btn-dark {
@@ -563,4 +566,11 @@ iframe {
 
 clear-margin {
     margin: 0 0 0 0 !important;
+}
+.loading{
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin-left: -32px;
+    margin-top: -32px;
 }

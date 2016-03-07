@@ -17,12 +17,18 @@ window.onresize = function () {
     resizeShits();
 }
 
-window.onload = function () {
+$(window).load(function () {
     bg = document.getElementById('background-vertical');
     currentVideo = "";
     $('.overlay-center').addClass('overlay-center-loaded')
     $('#overlay').delay(2000).fadeOut(400, function () {
+        setTimeout(function () {
+            var text = $('.quote').data('text');
 
+            typeWriter(text, 0);
+        }, 2500);
+        $(".sub").addClass("fadeInUp")
+        $(".sub").removeClass('hideAfterFade')
     });
     // change background yo
     $(".linkage").on('click', function (e) {
@@ -71,7 +77,7 @@ window.onload = function () {
                 break;
             }
         }
-        
+
     });
 
     resizeShits();
@@ -142,7 +148,7 @@ window.onload = function () {
         }
         console.log("swiped up")
     });
-}
+});
 
 
 
@@ -165,12 +171,13 @@ function loadPosts() {
                 $.getJSON('http://www.vimeo.com/api/v2/video/' + numb + '.json?callback=?', { format: "json" }, function (data) {
                     $(thumb).attr("src", data[0].thumbnail_large);
                     $(thumb).delay(3000).fadeIn();
+                    $('.loading').delay(3000).fadeOut();
                 });
                 //vimeoLoadingThumb(numb);
                 resizeVideos()
                 portfolioIndex.push("#" + source_id);
             });
-
+            
             if (data.response.posts.length == 20) {
                 retrieve_more(offset + 20);
             }

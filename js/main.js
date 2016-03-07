@@ -128,17 +128,19 @@ window.onload = function () {
             changePage(true, false);
         }
     });
-    $(".text-vertical-center").on("swipedown", function () {
+    $("#portfolio-list").on("swipedown", ".portfolio-individual", function () {
         if (index == 4) {
             index2--;
             changePage(true, true);
         }
+        console.log("swiped down")
     });
-    $(".text-vertical-center").on("swipeup", function () {
+    $("#portfolio-list").on("swipeup", ".portfolio-individual", function () {
         if (index == 4) {
             index2++;
             changePage(true, true);
         }
+        console.log("swiped up")
     });
 }
 
@@ -158,7 +160,7 @@ function loadPosts() {
                 numb = numb.join("");
                 var source_id = "vimeo-" + numb;
                 var thumb = "#vimeo-thumbs-" + numb;
-                $(".table-div").append('<div id="' + source_id + '" class="table-div-cell hideAfterFade"> <div class="col-md-6 col-md-offset-3"><a><i class="fa fa-arrow-up fa-3x" onclick="index2--;changePage(true, true);"></i></a><p>' + caption + '</p><div class="embed-responsive embed-responsive-16by9">' + content + '</div><p><br/></p><a><i class="fa fa-arrow-down fa-3x" onclick="index2++;changePage(true, true);"></i></a></div></div>')
+                $("#portfolio-list").append('<div id="' + source_id + '" class="table-div-cell hideAfterFade"> <div class="portfolio-individual col-md-6 col-md-offset-3"><a><i class="fa fa-arrow-up fa-3x" onclick="index2--;changePage(true, true);"></i></a><p>' + caption + '</p><div class="embed-responsive embed-responsive-16by9">' + content + '</div><p><br/></p><a><i class="fa fa-arrow-down fa-3x" onclick="index2++;changePage(true, true);"></i></a></div></div>')
                 $("#works-portfolio").append('<div class="col-md-4"><a href="#' + source_id + '" class="linkage2"><img id="vimeo-thumbs-' + numb + '" src="" style="width:100%; display:none;"/></a></div>')
                 $.getJSON('http://www.vimeo.com/api/v2/video/' + numb + '.json?callback=?', { format: "json" }, function (data) {
                     $(thumb).attr("src", data[0].thumbnail_large);

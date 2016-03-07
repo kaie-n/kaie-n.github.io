@@ -3,11 +3,12 @@ wow = new WOW()
 wow.init();
 var loadOnce = false;
 var index = 0;
+var index2 = 0;
 var currentVideo;
 var divIndex = {
     "id": ["#homepage", "#about", "#works", "#contact", "#works"]
-
 };
+var portfolioIndex = [];
 var bg;
 $.mobile.autoInitializePage = false;
 window.addEventListener('orientationchange', doOnOrientationChange);
@@ -64,6 +65,13 @@ window.onload = function () {
         changeBackground(u, bg);
         currentVideo = u + " iframe";
         index = 4;
+        for (var i = 0; i < portfolioIndex.length; i++) {
+            if (u == portfolioIndex[i]) {
+                index2 = i;
+                break;
+            }
+        }
+        
     });
 
     resizeShits();
@@ -103,21 +111,33 @@ window.onload = function () {
     $(".text-vertical-center").on("swipeleft", function () {
         if (index != 4) {
             index++
-            changePage(false);
+            changePage(false, false);
         }
         else {
             index = 2;
-            changePage(true);
+            changePage(true, false);
         }
     });
     $(".text-vertical-center").on("swiperight", function () {
         if (index != 4) {
             index--;
-            changePage(false);
+            changePage(false, false);
         }
         else {
             index = 2;
-            changePage(true);
+            changePage(true, false);
+        }
+    });
+    $(".text-vertical-center").on("swipedown", function () {
+        if (index == 4) {
+            index2--;
+            changePage(true, true);
+        }
+    });
+    $(".text-vertical-center").on("swipeup", function () {
+        if (index == 4) {
+            index2++;
+            changePage(true, true);
         }
     });
 }
@@ -137,13 +157,16 @@ function loadPosts() {
                 var numb = source_url.match(/\d/g);
                 numb = numb.join("");
                 var source_id = "vimeo-" + numb;
-                $(".table-div").append('<div id="' + source_id + '" class="table-div-cell hideAfterFade"> <div class="col-md-6 col-md-offset-3"><p>' + caption + '</p>' + content + '</div></div>')
-
+                var thumb = "#vimeo-thumbs-" + numb;
+                $(".table-div").append('<div id="' + source_id + '" class="table-div-cell hideAfterFade"> <div class="col-md-6 col-md-offset-3"><a><i class="fa fa-arrow-up fa-3x" onclick="index2--;changePage(true, true);"></i></a><p>' + caption + '</p><div class="embed-responsive embed-responsive-16by9">' + content + '</div><p><br/></p><a><i class="fa fa-arrow-down fa-3x" onclick="index2++;changePage(true, true);"></i></a></div></div>')
+                $("#works-portfolio").append('<div class="col-md-4"><a href="#' + source_id + '" class="linkage2"><img id="vimeo-thumbs-' + numb + '" src="" style="width:100%; display:none;"/></a></div>')
                 $.getJSON('http://www.vimeo.com/api/v2/video/' + numb + '.json?callback=?', { format: "json" }, function (data) {
-                    $("#works-portfolio").append('<div class="col-md-4"><a href="#' + source_id + '" class="linkage2"><img id="vimeo-thumbs-' + numb + '" src="' + data[0].thumbnail_large + '" style="width:100%"/></a></div>')
+                    $(thumb).attr("src", data[0].thumbnail_large);
+                    $(thumb).delay(3000).fadeIn();
                 });
                 //vimeoLoadingThumb(numb);
                 resizeVideos()
+                portfolioIndex.push("#" + source_id);
             });
 
             if (data.response.posts.length == 20) {
@@ -156,8 +179,9 @@ function loadPosts() {
 
 }
 
-function changePage(bool) {
-    if (bool == false) {
+function changePage(bool1, bool2) {
+    var t;
+    if (bool1 == false && bool2 == false) {
         if (index < 0) {
             index = 3;
         }
@@ -166,9 +190,24 @@ function changePage(bool) {
                 index = 0;
             }
         }
+        t = $(divIndex.id[index]);
+        changeBackground(divIndex.id[index], bg);
     }
-    var t = $(divIndex.id[index]);
-    changeBackground(divIndex.id[index], bg);
+    if (bool1 == true && bool2 == false) {
+        t = $(divIndex.id[index]);
+        changeBackground(divIndex.id[index], bg);
+    }
+    if (bool1 == true && bool2 == true) {
+        if (index2 < 0) {
+            index2 = portfolioIndex.length - 1;
+        }
+        else {
+            if (index2 >= portfolioIndex.length) {
+                index2 = 0;
+            }
+        }
+        t = $(portfolioIndex[index2]);
+    }
     if (t.hasClass("show-time") == false) {
         $("div.show-time").each(function () {
             if ($("div").hasClass("show-time")) {
@@ -206,8 +245,9 @@ function resizeVideos() {
     var change = height - (76 * 2);
     var vid = document.getElementsByTagName('iframe');
     for (var i = 0; i < vid.length; i++) {
-        vid[i].height = change - Math.round(change * 0.12664259927797833);
+        //vid[i].height = change - Math.round(change * 0.12664259927797833);
         vid[i].id = "vimeo-video-" + i;
+        vid[i].className = "embed-responsive-item";
     }
 }
 

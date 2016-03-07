@@ -8,10 +8,22 @@
 
 
 /* Global Styles */
-#preload-01 { background: url(../img/portfolio/background-01.jpg) no-repeat -9999px -9999px; }
-#preload-02 { background: url(../img/portfolio/background-02.jpg) no-repeat -9999px -9999px; }
-#preload-03 { background: url(../img/portfolio/background-03.jpg) no-repeat -9999px -9999px; }
-#preload-04 { background: url(../img/portfolio/background-04.jpg) no-repeat -9999px -9999px; }
+#preload-01 {
+    background: url(../img/portfolio/background-01.jpg) no-repeat -9999px -9999px;
+}
+
+#preload-02 {
+    background: url(../img/portfolio/background-02.jpg) no-repeat -9999px -9999px;
+}
+
+#preload-03 {
+    background: url(../img/portfolio/background-03.jpg) no-repeat -9999px -9999px;
+}
+
+#preload-04 {
+    background: url(../img/portfolio/background-04.jpg) no-repeat -9999px -9999px;
+}
+
 html,
 body {
     width: 100%;
@@ -86,11 +98,17 @@ body {
         text-align: center;
         font-size: 20px;
     }
-    .overflow-scroll {
-        overflow-x:hidden; 
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-    }
+
+        .table-div-cell p.sub {
+            text-align: center;
+            font-size: 14px;
+        }
+
+.overflow-scroll {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
 /* Custom Button Styles */
 
 .btn-dark {
@@ -288,8 +306,8 @@ a.linkage:hover, a.linkage:focus {
     visibility: hidden;
 }
 
-.logo{
-    width:50px;
+.logo {
+    width: 50px;
 }
 
 /*.logo-overlay:active {
@@ -534,6 +552,7 @@ address {
         width: 50px;
     }
 }
+
 iframe {
     width: 100%;
 }
@@ -541,6 +560,7 @@ iframe {
 #works-portfolio div {
     padding: 15px;
 }
+
 clear-margin {
     margin: 0 0 0 0 !important;
 }

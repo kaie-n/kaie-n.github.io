@@ -265,6 +265,7 @@ function resizeVideos() {
     }
     var str = String(change) + "px";
     $('.overflow-scroll').css('height', str);
+    $('.table-div-cell').css('height', str);
 }
 
 //end of portfolio stuffs
@@ -328,7 +329,7 @@ function resizeShits() {
     var number = Math.round(0.473 * bg.clientHeight);
     var formHeight = String(number) + "px";
     $('#form-message').css('height', formHeight)
-
+    $('.table-div-cell').css('height', str);
 }
 
 

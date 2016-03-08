@@ -20,6 +20,7 @@ window.onresize = function () {
 $(window).load(function () {
     bg = document.getElementById('background-vertical');
     currentVideo = "";
+    changeBackground("#homepage");
     $('.overlay-center').addClass('overlay-center-loaded')
     $('#overlay').delay(2000).fadeOut(400, function () {
         setTimeout(function () {
@@ -29,14 +30,17 @@ $(window).load(function () {
         }, 2500);
         $(".sub").addClass("fadeInUp")
         $(".sub").removeClass('hideAfterFade')
+
     });
+
     // change background yo
     $(".linkage").on('click', function (e) {
         e.preventDefault();
         var t = $($(this).attr("href"))
         var u = $(this).attr("href");
-        changeBackground(u);
+        
         if (t.hasClass("show-time") == false) {
+            changeBackground(u);
             $("div.show-time").each(function () {
                 if ($("div").hasClass("show-time")) {
                     $('div.show-time').fadeOut(250, function () {
@@ -49,15 +53,15 @@ $(window).load(function () {
                 }
             });
         }
-       
+
         currentVideo = "";
     });
     $("#works-portfolio").on('click', '.linkage2', function (e) {
         e.preventDefault();
         var t = $($(this).attr("href"))
         var u = $(this).attr("href");
-        changeBackground(u);
         if (t.hasClass("show-time") == false) {
+           
             $("div.show-time").each(function () {
                 if ($("div").hasClass("show-time")) {
                     $('div.show-time').fadeOut(250, function () {
@@ -70,7 +74,7 @@ $(window).load(function () {
                 }
             });
         }
-        
+
         currentVideo = u + " iframe";
         index = 4;
         for (var i = 0; i < portfolioIndex.length; i++) {
@@ -270,24 +274,21 @@ function resizeVideos() {
 
 //end of portfolio stuffs
 function changeBackground(u) {
-    var bg = document.getElementById('table-div');
+    var bg;
+    $(".change-background").css({
+        "opacity": "0"
+    });
     if (u == "#homepage") {
         index = 0;
-        bg.style.background = "url(../img/portfolio/background-01.jpg) no-repeat center"
-        bg.style.backgroundSize = "cover";
-        $("#table-div").css('background', 'url(../img/portfolio/background-01.jpg) no-repeat center;');
+        bg = "url(../img/portfolio/background-01.jpg) no-repeat center"
     }
     if (u == "#about") {
         index = 1;
-        bg.style.background = "url(../img/portfolio/background-02.jpg) no-repeat center"
-        bg.style.backgroundSize = "cover";
-        $("#table-div").css('background', 'url(../img/portfolio/background-02.jpg) no-repeat center;');
+        bg = "url(../img/portfolio/background-02.jpg) no-repeat center"
     }
     if (u == "#works") {
         index = 2;
-        bg.style.background = "url(../img/portfolio/background-03.jpg) no-repeat center"
-        bg.style.backgroundSize = "cover";
-        $("#table-div").css('background', 'url(../img/portfolio/background-03.jpg) no-repeat center;');
+        bg = "url(../img/portfolio/background-03.jpg) no-repeat center"
         if (loadOnce == false) {
             loadPosts();
             loadOnce = true;
@@ -296,11 +297,22 @@ function changeBackground(u) {
     }
     if (u == "#contact" || u == "#thanks") {
         index = 3;
-        bg.style.background = "url(../img/portfolio/background-04.jpg) no-repeat center"
-        bg.style.backgroundSize = "cover";
-        $("#table-div").css('background', 'url(../img/portfolio/background-04.jpg) no-repeat center;');
+        bg= "url(../img/portfolio/background-04.jpg) no-repeat center"
     }
+    
+    $(".change-background").delay(500).queue(function (next) {
+        $(this).css({
+            "opacity": "1"
+        });
+        $(".change-background").css({
+            "background": bg
+        });
+        next();
+    });
 
+
+
+    //bg.style.opacity = "1";
 }
 
 
@@ -315,15 +327,15 @@ function resizeShits() {
     || document.body.clientHeight;
     var change = height - (76 * 2)
     var bg = document.getElementById('background-vertical');
+    var str = String(change) + "px";
+    var str2 = String(bg.clientHeight) + "px"
     bg.style.minHeight = String(change) + "px"
-    var bgOverlay = document.getElementById('background-vertical-overlay');
     if (change == bg.clientHeight) {
-        bgOverlay.style.height = String(change) + "px"
+        $('.background-vertical-overlay').css('height', str)
     }
     else {
-        bgOverlay.style.height = String(bg.clientHeight) + "px";
+        $('.background-vertical-overlay').css('height', str)
     }
-    var str = String(change) + "px";
     $('.overflow-scroll').css('height', str);
     // change form height accordingly :D
     var number = Math.round(0.473 * bg.clientHeight);
@@ -334,21 +346,22 @@ function resizeShits() {
 
 
 function doOnOrientationChange() {
-    var width = window.innerWidth
-    || document.documentElement.clientWidth
-    || document.body.clientWidth;
+    //var width = window.innerWidth
+    //|| document.documentElement.clientWidth
+    //|| document.body.clientWidth;
 
-    var height = window.innerHeight
-    || document.documentElement.clientHeight
-    || document.body.clientHeight;
-    var change = height - (76 * 2)
-    var bg = document.getElementById('background-vertical');
-    bg.style.minHeight = String(change) + "px"
-    var bgOverlay = document.getElementById('background-vertical-overlay');
-    bgOverlay.style.height = String(document.getElementById("background-vertical").clientHeight) + "px";
-    //bgOverlay.style.minHeight = String(change) + "px";
-    var str = String(change) + "px";
-    $('.overflow-scroll').css('height', str);
+    //var height = window.innerHeight
+    //|| document.documentElement.clientHeight
+    //|| document.body.clientHeight;
+    //var change = height - (76 * 2)
+    //var bg = document.getElementById('background-vertical');
+    //bg.style.minHeight = String(change) + "px"
+    //var bgOverlay = document.getElementById('background-vertical-overlay');
+    //bgOverlay.style.height = String(document.getElementById("background-vertical").clientHeight) + "px";
+    ////bgOverlay.style.minHeight = String(change) + "px";
+    //var str = String(change) + "px";
+    //$('.overflow-scroll').css('height', str);
+    resizeShits();
     resizeVideos();
 }
 

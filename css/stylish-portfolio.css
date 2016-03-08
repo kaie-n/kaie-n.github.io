@@ -59,25 +59,22 @@ body {
     visibility: hidden;
 }
 
-#background-vertical-overlay {
+.background-vertical-overlay {
     position: absolute;
     width: 100%;
     /*min-height: 554px;*/
     background-color: #000;
     opacity: 0.6;
+     -webkit-transition: opacity 500ms ease;
+    -moz-transition: opacity 500ms ease;
+    -o-transition: opacity 500ms ease;
+    transition: opacity .5s ease;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    background-size: cover !important;
+    -o-background-size: cover !important;
 }
 
-#table-div {
-    background: url(../img/portfolio/background-01.jpg) no-repeat center;
-    background-size: cover !important;
-    display: table;
-    width: 100%;
-    height: 100%;
-     -webkit-transition: all 500ms ease;
-    -moz-transition: all 500ms ease;
-    -o-transition: all 500ms ease;
-    transition: all .5s ease;
-}
 
 .table-div {
     display: table;

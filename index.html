@@ -81,72 +81,74 @@
                     <div id="about" class="table-div-cell hideAfterFade">
                         <div class="col-md-6 col-md-offset-3">
                             <p>kaienx</p>
-                            <p  class="sub"><em>“If only you knew the power of the dark side”</em></p>
+                            <p class="sub"><em>“If only you knew the power of the dark side”</em></p>
                             <p class="sub">Born in the urban Singapore.</p>
                             <p class="sub">
                                 If what you need is [<em>insert project type]</em>, he will some way or some how find
                                 the necessary things for all your needs.
                             </p>
-                            <p  class="sub">
+                            <p class="sub">
                                 Let's <a href="mailto:contact@kaienx.com">talk</a> over a cup of <em style="color: #FF82EF;">bandung</em> sometime :)
                             </p>
                         </div>
                     </div>
                     <div id="works" class="table-div-cell hideAfterFade">
-                        <div id="works-portfolio" class="col-md-12 overflow-scroll" >
+                        <div id="works-portfolio" class="col-md-12 overflow-scroll">
                         </div>
                         <img src="img/rolling.gif" class="loading" />
                     </div>
                     <div id="portfolio-list" class="table-div"></div>
                     <div id="contact" class="table-div-cell hideAfterFade">
                         <div id="contact-form-success" class="col-md-6 col-md-offset-3 hideAfterFade"></div>
-                        <div id="contact-form" class="col-md-6 col-md-offset-3 overflow-scroll">
-                            <p></p>
-                            <p>Say hello!</p>
-                            <form id="form-contact" class="form-horizontal" action="//formspree.io/contact@kaienx.com" method="POST">
-                                <fieldset>
-                                    <input type="text" name="_gotcha" style="display:none" />
-                                    <!--<input type="hidden" name="_next" value="#thanks" />-->
-                                    <!-- Form Name -->
-                                    <!-- Text input-->
-                                    <div class="form-group">
-                                        <label class="col-md-12 control-label" for="form-name"></label>
-                                        <div class="col-md-12">
-                                            <input id="form-name" name="form-name" type="text" placeholder="NAME" class="form-control input-md" required="">
+                        <div id="contact-form" class="col-md-12 overflow-scroll">
+                            <div class="col-md-6 col-md-offset-3">
+                                <p></p>
+                                <p>Say hello!</p>
+                                <form id="form-contact" class="form-horizontal" action="//formspree.io/contact@kaienx.com" method="POST">
+                                    <fieldset>
+                                        <input type="text" name="_gotcha" style="display:none" />
+                                        <!--<input type="hidden" name="_next" value="#thanks" />-->
+                                        <!-- Form Name -->
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" for="form-name"></label>
+                                            <div class="col-md-12">
+                                                <input id="form-name" name="form-name" type="text" placeholder="NAME" class="form-control input-md" required="">
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Text input-->
-                                    <div class="form-group">
-                                        <label class="col-md-12 control-label" for="form-email"></label>
-                                        <div class="col-md-12">
-                                            <input id="form-email" name="_replyto" type="text" placeholder="EMAIL" class="form-control input-md" required="">
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" for="form-email"></label>
+                                            <div class="col-md-12">
+                                                <input id="form-email" name="_replyto" type="text" placeholder="EMAIL" class="form-control input-md" required="">
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Text input-->
-                                    <div class="form-group">
-                                        <label class="col-md-12 control-label" for="form-phone"></label>
-                                        <div class="col-md-12">
-                                            <input id="form-phone" name="form-phone" type="text" placeholder="PHONE NUMBER" class="form-control input-md">
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" for="form-phone"></label>
+                                            <div class="col-md-12">
+                                                <input id="form-phone" name="form-phone" type="text" placeholder="PHONE NUMBER" class="form-control input-md">
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Textarea -->
-                                    <div class="form-group">
-                                        <label class="col-md-12 control-label" for="form-message"></label>
-                                        <div class="col-md-12">
-                                            <textarea class="form-control" id="form-message" name="form-message" placeholder="SO YOU REAALLY WANNA DRINK BANDUNG YEA?" required=""></textarea>
+                                        <!-- Textarea -->
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" for="form-message"></label>
+                                            <div class="col-md-12">
+                                                <textarea class="form-control" id="form-message" name="form-message" placeholder="SO YOU REAALLY WANNA DRINK BANDUNG YEA?" required=""></textarea>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- Button -->
-                                    <div class="form-group">
-                                        <div class="col-md-1">
-                                            <button id="form-submit" name="form-submit" class="btn btn-default">Submit</button>
+                                        <!-- Button -->
+                                        <div class="form-group">
+                                            <div class="col-md-1">
+                                                <button id="form-submit" name="form-submit" class="btn btn-default">Submit</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                </fieldset>
-                            </form>
+                                    </fieldset>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -206,21 +208,7 @@
                 img4.src = "../img/portfolio/background-04.jpg";
             }
         }
-        function addLoadEvent(func) {
-            var oldonload = window.onload;
-            if (typeof window.onload != 'function') {
-                window.onload = func;
-            } else {
-                window.onload = function () {
-                    if (oldonload) {
-                        oldonload();
-                    }
-                    func();
-                }
-            }
-        }
-        addLoadEvent(preloader);
-
+        preloader();
 
     </script>
 

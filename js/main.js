@@ -9,7 +9,7 @@ var divIndex = {
     "id": ["#homepage", "#about", "#works", "#contact", "#works"]
 };
 var portfolioIndex = [];
-var bg;
+
 $.mobile.autoInitializePage = false;
 window.addEventListener('orientationchange', doOnOrientationChange);
 
@@ -35,6 +35,7 @@ $(window).load(function () {
         e.preventDefault();
         var t = $($(this).attr("href"))
         var u = $(this).attr("href");
+        changeBackground(u);
         if (t.hasClass("show-time") == false) {
             $("div.show-time").each(function () {
                 if ($("div").hasClass("show-time")) {
@@ -48,13 +49,14 @@ $(window).load(function () {
                 }
             });
         }
-        changeBackground(u, bg);
+       
         currentVideo = "";
     });
     $("#works-portfolio").on('click', '.linkage2', function (e) {
         e.preventDefault();
         var t = $($(this).attr("href"))
         var u = $(this).attr("href");
+        changeBackground(u);
         if (t.hasClass("show-time") == false) {
             $("div.show-time").each(function () {
                 if ($("div").hasClass("show-time")) {
@@ -68,7 +70,7 @@ $(window).load(function () {
                 }
             });
         }
-        changeBackground(u, bg);
+        
         currentVideo = u + " iframe";
         index = 4;
         for (var i = 0; i < portfolioIndex.length; i++) {
@@ -120,8 +122,8 @@ $(window).load(function () {
             changePage(false, false);
         }
         else {
-            index = 2;
-            changePage(true, false);
+            index2++;
+            changePage(true, true);
         }
     });
     $(".text-vertical-center").on("swiperight", function () {
@@ -130,24 +132,24 @@ $(window).load(function () {
             changePage(false, false);
         }
         else {
-            index = 2;
-            changePage(true, false);
-        }
-    });
-    $("#portfolio-list").on("swipedown", ".portfolio-individual", function () {
-        if (index == 4) {
             index2--;
             changePage(true, true);
         }
-        console.log("swiped down")
     });
-    $("#portfolio-list").on("swipeup", ".portfolio-individual", function () {
-        if (index == 4) {
-            index2++;
-            changePage(true, true);
-        }
-        console.log("swiped up")
-    });
+    //$("#portfolio-list").on("swipedown", ".portfolio-individual", function () {
+    //    if (index == 4) {
+    //        index2--;
+    //        changePage(true, true);
+    //    }
+    //    console.log("swiped down")
+    //});
+    //$("#portfolio-list").on("swipeup", ".portfolio-individual", function () {
+    //    if (index == 4) {
+    //        index2++;
+    //        changePage(true, true);
+    //    }
+    //    console.log("swiped up")
+    //});
 });
 
 
@@ -166,7 +168,7 @@ function loadPosts() {
                 numb = numb.join("");
                 var source_id = "vimeo-" + numb;
                 var thumb = "#vimeo-thumbs-" + numb;
-                $("#portfolio-list").append('<div id="' + source_id + '" class="table-div-cell hideAfterFade"> <div class="portfolio-individual col-md-6 col-md-offset-3"><div class="embed-responsive embed-responsive-16by9">' + content + '</div><p>' + caption + '</p><p><br/></p><a><i class="fa fa-arrow-down fa-3x" onclick="index2++;changePage(true, true);"></i></a><a><i class="fa fa-arrow-up fa-3x" onclick="index2--;changePage(true, true);"></i></a></div></div>')
+                $("#portfolio-list").append('<div id="' + source_id + '" class="table-div-cell hideAfterFade"> <div class="portfolio-individual col-md-12 overflow-scroll"><div class="col-md-8 col-md-offset-2" style="margin-top: 25px"><div class="embed-responsive embed-responsive-16by9">' + content + '</div></div><div class="col-md-8 col-md-offset-2"><p></p>' + caption + '<p><br/></p><a><i class="fa fa-long-arrow-left fa-2x" onclick="index2--;changePage(true, true);"></i></a><a> <i class="fa fa-home fa-2x" onclick="index = 2;changePage(false,false);"></i> </a><a><i class="fa fa-long-arrow-right fa-2x" onclick="index2++;changePage(true, true);"></i></a> <p></p></div></div></div>')
                 $("#works-portfolio").append('<div class="col-md-4"><a href="#' + source_id + '" class="linkage2"><img id="vimeo-thumbs-' + numb + '" src="" style="width:100%; display:none;"/></a></div>')
                 $.getJSON('http://www.vimeo.com/api/v2/video/' + numb + '.json?callback=?', { format: "json" }, function (data) {
                     $(thumb).attr("src", data[0].thumbnail_large);
@@ -177,7 +179,7 @@ function loadPosts() {
                 resizeVideos()
                 portfolioIndex.push("#" + source_id);
             });
-            
+
             if (data.response.posts.length == 20) {
                 retrieve_more(offset + 20);
             }
@@ -216,7 +218,7 @@ function changePage(bool1, bool2) {
             }
         }
         t = $(portfolioIndex[index2]);
-        
+
         pauseVideos();
         currentVideo = portfolioIndex[index2] + " iframe"
     }
@@ -261,27 +263,30 @@ function resizeVideos() {
         vid[i].id = "vimeo-video-" + i;
         vid[i].className = "embed-responsive-item";
     }
+    var str = String(change) + "px";
+    $('.overflow-scroll').css('height', str);
 }
 
 //end of portfolio stuffs
-function changeBackground(u, bg) {
+function changeBackground(u) {
+    var bg = document.getElementById('table-div');
     if (u == "#homepage") {
         index = 0;
         bg.style.background = "url(../img/portfolio/background-01.jpg) no-repeat center"
         bg.style.backgroundSize = "cover";
-        $("#background-vertical").css('background', 'url(../img/portfolio/background-01.jpg) no-repeat center;');
+        $("#table-div").css('background', 'url(../img/portfolio/background-01.jpg) no-repeat center;');
     }
     if (u == "#about") {
         index = 1;
         bg.style.background = "url(../img/portfolio/background-02.jpg) no-repeat center"
         bg.style.backgroundSize = "cover";
-        $("#background-vertical").css('background', 'url(../img/portfolio/background-02.jpg) no-repeat center;');
+        $("#table-div").css('background', 'url(../img/portfolio/background-02.jpg) no-repeat center;');
     }
     if (u == "#works") {
         index = 2;
         bg.style.background = "url(../img/portfolio/background-03.jpg) no-repeat center"
         bg.style.backgroundSize = "cover";
-        $("#background-vertical").css('background', 'url(../img/portfolio/background-03.jpg) no-repeat center;');
+        $("#table-div").css('background', 'url(../img/portfolio/background-03.jpg) no-repeat center;');
         if (loadOnce == false) {
             loadPosts();
             loadOnce = true;
@@ -292,7 +297,7 @@ function changeBackground(u, bg) {
         index = 3;
         bg.style.background = "url(../img/portfolio/background-04.jpg) no-repeat center"
         bg.style.backgroundSize = "cover";
-        $("#background-vertical").css('background', 'url(../img/portfolio/background-04.jpg) no-repeat center;');
+        $("#table-div").css('background', 'url(../img/portfolio/background-04.jpg) no-repeat center;');
     }
 
 }
@@ -317,13 +322,8 @@ function resizeShits() {
     else {
         bgOverlay.style.height = String(bg.clientHeight) + "px";
     }
-    document.getElementById('contact-form').style.height = String(change) + "px";
-    if (width < 992) {
-        document.getElementById('works-portfolio').style.height = String(change) + "px";
-    }
-    else {
-        document.getElementById('works-portfolio').style.height = String(change) + "px";
-    }
+    var str = String(change) + "px";
+    $('.overflow-scroll').css('height', str);
     // change form height accordingly :D
     var number = Math.round(0.473 * bg.clientHeight);
     var formHeight = String(number) + "px";
@@ -346,13 +346,8 @@ function doOnOrientationChange() {
     var bgOverlay = document.getElementById('background-vertical-overlay');
     bgOverlay.style.height = String(document.getElementById("background-vertical").clientHeight) + "px";
     //bgOverlay.style.minHeight = String(change) + "px";
-    document.getElementById('contact-form').style.height = String(change) + "px"
-    if (width < 992) {
-        document.getElementById('works-portfolio').style.height = String(change) + "px";
-    }
-    else {
-        document.getElementById('works-portfolio').style.height = "";
-    }
+    var str = String(change) + "px";
+    $('.overflow-scroll').css('height', str);
     resizeVideos();
 }
 

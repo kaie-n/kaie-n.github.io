@@ -54,14 +54,8 @@ body {
 
 #background-vertical {
     min-height: 62%;
-    background: url(../img/portfolio/background-01.jpg) no-repeat center;
-    background-size: cover !important;
     background-color: #333;
     height: 62%;
-    -webkit-transition: background 500ms ease;
-    -moz-transition: background 500ms ease;
-    -o-transition: background 500ms ease;
-    transition: background .5s ease;
     visibility: hidden;
 }
 
@@ -71,6 +65,18 @@ body {
     /*min-height: 554px;*/
     background-color: #000;
     opacity: 0.6;
+}
+
+#table-div {
+    background: url(../img/portfolio/background-01.jpg) no-repeat center;
+    background-size: cover !important;
+    display: table;
+    width: 100%;
+    height: 100%;
+     -webkit-transition: background 500ms ease;
+    -moz-transition: background 500ms ease;
+    -o-transition: background 500ms ease;
+    transition: background .5s ease;
 }
 
 .table-div {
@@ -97,11 +103,18 @@ body {
     .table-div-cell p {
         text-align: center;
         font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-family: 'oswald';
     }
 
         .table-div-cell p.sub {
             text-align: center;
             font-size: 14px;
+            text-transform: none;
+            font-weight: 300;
+            font-family: 'crimson';
+            letter-spacing: 1px;
         }
 
 .overflow-scroll {
@@ -109,8 +122,9 @@ body {
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
 }
+
 .wow {
-   visibility: hidden;
+    visibility: hidden;
 }
 /* Custom Button Styles */
 
@@ -567,10 +581,11 @@ iframe {
 clear-margin {
     margin: 0 0 0 0 !important;
 }
-.loading{
-    position:fixed;
-    top:50%;
-    left:50%;
+
+.loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
     margin-left: -32px;
     margin-top: -32px;
 }

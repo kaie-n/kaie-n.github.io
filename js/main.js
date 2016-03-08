@@ -206,11 +206,17 @@ function changePage(bool1, bool2) {
             }
         }
         t = $(divIndex.id[index]);
-        changeBackground(divIndex.id[index], bg);
+        if (t.hasClass("show-time") == false) {
+
+            changeBackground(divIndex.id[index], bg);
+        }
     }
     if (bool1 == true && bool2 == false) {
         t = $(divIndex.id[index]);
-        changeBackground(divIndex.id[index], bg);
+        if (t.hasClass("show-time") == false) {
+
+            changeBackground(divIndex.id[index], bg);
+        }
     }
     if (bool1 == true && bool2 == true) {
         if (index2 < 0) {
@@ -227,6 +233,7 @@ function changePage(bool1, bool2) {
         currentVideo = portfolioIndex[index2] + " iframe"
     }
     if (t.hasClass("show-time") == false) {
+
         $("div.show-time").each(function () {
             if ($("div").hasClass("show-time")) {
                 $('div.show-time').fadeOut(250, function () {

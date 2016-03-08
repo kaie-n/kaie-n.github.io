@@ -211,13 +211,6 @@ function changePage(bool1, bool2) {
             changeBackground(divIndex.id[index], bg);
         }
     }
-    if (bool1 == true && bool2 == false) {
-        t = $(divIndex.id[index]);
-        if (t.hasClass("show-time") == false) {
-
-            changeBackground(divIndex.id[index], bg);
-        }
-    }
     if (bool1 == true && bool2 == true) {
         if (index2 < 0) {
             index2 = portfolioIndex.length - 1;
@@ -306,7 +299,18 @@ function changeBackground(u) {
         index = 3;
         bg= "url(../img/portfolio/background-04.jpg) no-repeat center"
     }
-    
+    $(".change-background2").css({
+        "background": bg,
+        "opacity": "1",
+        "visibility": "visible"
+    });
+    $(".change-background2").delay(1100).queue(function (next) {
+        $(".change-background2").css({
+            "opacity": "0",
+            "visibility": "hidden"
+        });
+        next();
+    });
     $(".change-background").delay(500).queue(function (next) {
         $(this).css({
             "opacity": "1"
@@ -314,6 +318,7 @@ function changeBackground(u) {
         $(".change-background").css({
             "background": bg
         });
+
         next();
     });
 

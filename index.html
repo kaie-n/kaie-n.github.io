@@ -206,9 +206,13 @@
                 img2.src = "../img/portfolio/background-02.jpg";
                 img3.src = "../img/portfolio/background-03.jpg";
                 img4.src = "../img/portfolio/background-04.jpg";
+                var arr = [img1, img2, img3, img4];
+                for (var i = 0; i < arr.length; i++) {
+                    $('<img />').attr('src', arr[i].src).appendTo('body').css('display', 'none');
+                }
             }
         }
-        preloader();
+        window.onload = function () { preloader(); };
 
     </script>
 

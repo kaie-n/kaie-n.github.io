@@ -181,7 +181,7 @@
                     </li>
                 </ul>
             </div>
-            <address>2015 © KAIENX</address>
+            <address>2015 - <span id="copyright-date"></span> © KAIENX</address>
         </div>
     </footer>
     <!-- Google Analytics -->
@@ -214,7 +214,12 @@
                 }
             }
         }
-        window.onload = function () { preloader(); };
+        window.onload = function () {
+            var date = new Date();
+            var year = date.getFullYear();
+            document.getElementById('copyright-date').innerText = year;
+            preloader();
+        };
 
     </script>
 

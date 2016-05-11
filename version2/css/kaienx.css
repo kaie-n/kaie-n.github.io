@@ -1,9 +1,10 @@
 ﻿html, body {
     height: 100%;
     width: 100%;
-    position:fixed;
-    overflow:hidden;
+    position: fixed;
+    overflow: hidden;
 }
+
 body {
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
@@ -183,4 +184,12 @@ address {
 
 a.linkage:hover, a.linkage:focus {
     text-decoration: none;
+}
+
+.container-new {
+    height: 100%;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
 }

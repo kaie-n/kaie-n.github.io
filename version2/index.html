@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="kaienx.com, a personal portfolio site based in Singapore. ">
+    <meta name="author" content="@kaienx">
+    <meta name="google-site-verification" content="KVToe8fLuQtNpSYdQWh0h7GqzbNjAGDeUx1s0uEPNmo" />
+    <title>kaienx - I have bigger dreams</title>
+    <link rel="icon" href="images/favicon.png" type="image/x-icon" sizes="16x16">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap Core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
+    <!-- Custom CSS -->
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/kaienx.css" rel="stylesheet" />
+    <!-- Custom Theme JavaScript -->
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="js/swiper.min.js"></script>
+
+    <script src="js/typewriter.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/kaienx.js"></script>
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div id="top-nav" >
+        <div class="row-fluid">
+            <div class="col-sm-12 text-center">
+                <a onclick="swiper.slideTo(1)" class="linkage">
+                    <img id="logo-resizer" src="images/logo-56x56.gif" class="logo" onmouseover="this.src = 'images/loader.gif'" onmouseout="    this.src = 'images/logo-56x56.gif' " />
+                </a>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="col-sm-12 text-center" style="background-color: #FFF;">
+                <div class="col-md-4 col-md-offset-4">
+                    <a onclick="swiper.slideTo(2)" class="linkage">ABOUT.</a>
+                    <a onclick="swiper.slideTo(3)" class="linkage">PHOTOS.</a>
+                    <a onclick="swiper.slideTo(4)" class="linkage">VIDEOS.</a>
+                    <a onclick="swiper.slideTo(5)" class="linkage">CONTACT.</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content -->
+    <div class="parent">
+        <div id="child" class="child">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-hash="slide1" style="background-image:url(images/portfolio/background-01.jpg)">
+                        <div class="container-fluid">
+                            <p class="quote" data-text="“I have bigger dreams”"></p>
+                            <p class="sub hideAfterFade wow fadeInUp" data-wow-delay="3s">To navigate, try swiping from left to right like ! 😉</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-hash="slide2" style="background-image:url(images/portfolio/background-02.jpg)">
+                        <div class="container-fluid">
+                            <p>kaienx</p>
+                            <p class="sub"><em>“If only you knew the power of the dark side”</em></p>
+                            <p class="sub">Born in the urban Singapore.</p>
+                            <p class="sub">
+                                A freelancer in a lot of aspects, just tell him your <br /><em id="project">video</em> idea. <br />He will some way or some how find
+                                the necessary things for all your needs.
+                            </p>
+                            <p class="sub">
+                                Let's <a onclick="swiper.slideTo(5)">talk</a> over a cup of <em style="color: #FF82EF;">bandung</em> sometime :)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-hash="slide3" style="background-image:url(images/portfolio/background-03.jpg)">Test</div>
+                    <div class="swiper-slide" data-hash="slide4" style="background-image:url(images/portfolio/background-04.jpg)">Test</div>
+                    <div class="swiper-slide" data-hash="slide5" style="background-image:url(images/portfolio/background-05.jpg)">
+                        <div class="container">
+                            <div id="contact-form">
+                                <p>Say hello!</p>
+                                <div class="col-lg-6">
+                                    <i class="fa fa-envelope"></i> <a href="mailto:contact@kaienx.com">contact@kaienx.com</a></h4>
+                                    <h4><i class="fa fa-phone"></i> +65 9126 6676</h4>
+                                    <p class="sub">
+                                        You have a big project in your mind but couldn't bring it to life?
+                                        <br>
+                                        Why not shoot him an email and he will get back to you as soon as possible!
+                                    </p>
+                                </div>
+                                <div class="col-lg-6" id="form-half-width">
+                                    <form id="form-contact" class="form-horizontal" action="//formspree.io/contact@kaienx.com" method="POST">
+                                        <fieldset>
+                                            <input type="text" name="_gotcha" style="display:none" />
+                                            <!--<input type="hidden" name="_next" value="#thanks" />-->
+                                            <!-- Form Name -->
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-md-12 control-label" for="form-name"></label>
+                                                <div class="col-md-12">
+                                                    <input id="form-name" name="form-name" type="text" placeholder="NAME" class="form-control input-md" required="">
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-md-12 control-label" for="form-email"></label>
+                                                <div class="col-md-12">
+                                                    <input id="form-email" name="_replyto" type="email" placeholder="EMAIL" class="form-control input-md" required="">
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-md-12 control-label" for="form-phone"></label>
+                                                <div class="col-md-12">
+                                                    <input id="form-phone" name="form-phone" type="tel" placeholder="PHONE NUMBER" class="form-control input-md">
+                                                </div>
+                                            </div>
+
+                                            <!-- Textarea -->
+                                            <div class="form-group">
+                                                <label class="col-md-12 control-label" for="form-message"></label>
+                                                <div class="col-md-12">
+                                                    <textarea class="form-control" id="form-message" name="form-message" placeholder="SO YOU REAALLY WANNA DRINK BANDUNG YEA?" required=""></textarea>
+                                                </div>
+                                            </div>
+                                            <!-- Button -->
+                                            <div class="form-group margin-top-25">
+                                                <div class="col-md-1">
+                                                    <button id="form-submit" name="form-submit" class="btn btn-default">Submit</button>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination swiper-pagination-white"></div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next swiper-button-white opacity-2"></div>
+                <div class="swiper-button-prev swiper-button-white opacity-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Message has been sent!</h4>
+                </div>
+                <div class="modal-body">
+                    <p>I have received your request</p>
+                    <p class='sub'>You may have a sip of coffee while waiting for my reply. 😉</p>
+                    <p class='sub'>Thank you!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <div id="share" class="share">
+                <ul>
+                    <li>
+                        <div>
+                            <a href="http://facebook.com/kaienx" alt="Facebook"><i class="fa fa-facebook"></i></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="http://instagram.com/kaienx" alt="Instagram"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="https://vimeo.com/kaienx" alt="Vimeo"><i class="fa fa-vimeo-square"></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <p class="text-muted"><address>2015 - <span id="copyright-date"></span> © <a href="http://kaienx.com">KAIENX</a></address></p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-31554703-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var date = new Date();
+            var year = date.getFullYear();
+            document.getElementById('copyright-date').innerText = year;
+        };
+        resizeShits();
+    </script>
+</body>
+</html>

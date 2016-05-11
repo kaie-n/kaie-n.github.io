@@ -125,6 +125,11 @@ address {
         .container-fluid p.sub, .container p.sub {
             font-size: 24px;
         }
+    .container-fluid{
+        height:100%;
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch !important;
+    }
 }
 
 .hideAfterFade {
@@ -186,3 +191,8 @@ a.linkage:hover, a.linkage:focus {
     text-decoration: none;
 }
 
+.overflow-scroll {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+}

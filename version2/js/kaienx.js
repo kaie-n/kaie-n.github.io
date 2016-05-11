@@ -5,10 +5,12 @@ $(window).load(function () {
     wow = new WOW();
     wow.init();
     $(".sub").removeClass('hideAfterFade')
-     swiper = new Swiper('.swiper-container', {
+    swiper = new Swiper('.swiper-container', {
         slideToClickedSlide: true,
         spaceBetween: 30,
-        loop: true
+        loop: true,
+        threshold: 100,
+        simulateTouch: false
     });
 
     $("#form-contact").submit(function (evt) {
@@ -53,6 +55,16 @@ $(window).load(function () {
         counter++;
         if (counter >= text.length) { counter = 0; }
     }
+
+    $("#nanoGallery2").nanoGallery({
+        kind: 'picasa',
+        userID: '110838454337071281550',
+        thumbnailWidth: 165,
+        thumbnailHeight: 110,
+        galleryToolbarHideIcons: true,
+        displayBreadcrumb: false,
+        galleryToolbarWidthAligned: false
+    });
 });
 
 window.onresize = function () {
@@ -63,6 +75,7 @@ function resizeShits() {
     bg = document.getElementById('child');
     var str =  bg.clientHeight + "px";
     $('.overflow-scroll').css('height', str);
+    $('.overflow-scroll').css('width', "100%");
     //setTimeout(function () {
     //    bg = document.getElementById('form-half-width');
     //    // change form height accordingly :D
@@ -72,4 +85,5 @@ function resizeShits() {
     //    console.log(number)
     //}, 2500);
 }
+
 

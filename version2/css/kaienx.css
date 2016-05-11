@@ -112,7 +112,12 @@ address {
         font-family: 'crimson';
         letter-spacing: 1px;
     }
-
+    .container-fluid{
+        height:100%;
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch !important;
+        
+    }
 @media (min-width: 768px) {
     .swiper-slide {
         font-size: 30px;
@@ -125,11 +130,7 @@ address {
         .container-fluid p.sub, .container p.sub {
             font-size: 24px;
         }
-    .container-fluid{
-        height:100%;
-        overflow: scroll;
-        -webkit-overflow-scrolling: touch !important;
-    }
+    
 }
 
 .hideAfterFade {

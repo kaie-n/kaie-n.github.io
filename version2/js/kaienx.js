@@ -6,11 +6,7 @@ $(window).load(function () {
     wow.init();
     $(".sub").removeClass('hideAfterFade')
      swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        paginationClickable: true,
         slideToClickedSlide: true,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
         spaceBetween: 30,
         loop: true
     });
@@ -64,6 +60,9 @@ window.onresize = function () {
 }
 
 function resizeShits() {
+    bg = document.getElementById('child');
+    var str =  bg.clientHeight + "px";
+    $('.overflow-scroll').css('height', str);
     //setTimeout(function () {
     //    bg = document.getElementById('form-half-width');
     //    // change form height accordingly :D

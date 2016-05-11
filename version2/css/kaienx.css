@@ -212,3 +212,14 @@ a.linkage:hover, a.linkage:focus {
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
 }
+@media (min-width: 768px) {
+    .child{
+        height:80%;
+    }
+    .overflow-scroll {
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    height: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+}

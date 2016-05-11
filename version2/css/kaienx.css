@@ -186,11 +186,3 @@ a.linkage:hover, a.linkage:focus {
     text-decoration: none;
 }
 
-.container-new {
-    height: 50%;
-    
-    vertical-align: middle;
-    align-items: center;
-    justify-content: center;
-    overflow-y:auto;
-}

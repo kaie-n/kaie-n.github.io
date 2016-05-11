@@ -12,7 +12,6 @@ $(window).load(function () {
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
         spaceBetween: 30,
-     
         loop: true
     });
 

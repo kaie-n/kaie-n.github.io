@@ -306,11 +306,8 @@ a.linkage:hover, a.linkage:focus {
     cursor: pointer;
     border: 0;
     text-decoration: none;
-    transition: opacity 0.2s ease-out;
-    opacity: 0;
-    width: 80px;
-    height: 80px;
-    display: block !important;
+    
+    display:none;
     font-size: 20px;
 }
 

@@ -61,6 +61,8 @@ $(window).load(function () {
         userID: '110838454337071281550',
         thumbnailWidth: 165,
         thumbnailHeight: 110,
+        thumbnailHoverEffect: 'labelSlideUp,borderLighter',
+        thumbnailLabel: { display: true, align: 'center' },
         galleryToolbarHideIcons: true,
         displayBreadcrumb: false,
         galleryToolbarWidthAligned: false,

@@ -97,7 +97,7 @@ $(window).load(function () {
     loadPosts();
 });
 
-
+window.addEventListener('orientationchange', resizeShits);
 
 window.onresize = function () {
     resizeShits();

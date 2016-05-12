@@ -248,7 +248,7 @@ a.linkage:hover, a.linkage:focus {
 .nanogallery_theme_default .nanoGalleryBreadcrumb {
     margin: 1px;
     padding: 4px;
-    text-align: center;
+    text-align: center !important;
     box-sizing: content-box;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
@@ -282,7 +282,7 @@ a.linkage:hover, a.linkage:focus {
 .nanogallery_theme_default .nanoGalleryContainer .nanoGalleryThumbnailContainer .labelImage {
     background: rgba(34,34,34,.75);
     opacity: 1;
-    text-align: center;
+    text-align: center !important;
     margin: 5px;
     left: 0;
     position: absolute;

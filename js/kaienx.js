@@ -133,18 +133,32 @@ function loadPosts() {
             if (data.response.posts.length == 20) {
                 retrieve_more(offset + 20);
             }
-
+            setTimeout(function () {
+                $('#video-gallery').lightGallery({
+                    loadVimeoThumbnail: true,
+                    vimeoThumbSize: 'thumbnail_medium',
+                    selector: '.item'
+                });
+            }, 2500);
         });
     };
     
     retrieve_more(0);
-    setTimeout(function () {
+   
+}
+function waitForElementToDisplay(selector, time) {
+    if (document.querySelector(selector) != null) {
         $('#video-gallery').lightGallery({
             loadVimeoThumbnail: true,
             vimeoThumbSize: 'thumbnail_medium',
             selector: '.item'
         });
-    }, 2500);
+        return;
+    }
+    else {
+        setTimeout(function () {
+            waitForElementToDisplay(selector, time);
+        }, time);
+    }
 }
-
 

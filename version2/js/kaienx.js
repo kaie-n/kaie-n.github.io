@@ -123,7 +123,7 @@ function loadPosts() {
                 numb = numb.join("");
                 var source_id = "https://vimeo.com/" + numb;
                 $.getJSON('http://www.vimeo.com/api/v2/video/' + numb + '.json?callback=?', { format: "json" }, function (data) {
-                    $("#video-gallery").append('<div class="col-md-4"><a class="item" href="' + source_id + '" ><img src="' + data[0].thumbnail_large + '" style="width:100%;"></a></div>')
+                    $("#video-gallery").append('<div class="col-md-4"><a class="item" href="' + source_id + '" data-poster="' + data[0].thumbnail_large + '"><img src="' + data[0].thumbnail_large + '" style="width:100%;"></a></div>')
                     
                 });
                

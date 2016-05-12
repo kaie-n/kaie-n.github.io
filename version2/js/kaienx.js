@@ -103,11 +103,9 @@ if (iOs)
     }
 } 
 
-$(document).bind('ready', function() 
-{
-    $(a).bind(clickEvent, function()
-    {
+$(document).bind('ready', function () {
+    $(a).bind(clickEvent, function () {
         if (touchMoving) return false;
         // your code here
     });
-}
+});

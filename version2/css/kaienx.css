@@ -327,6 +327,7 @@ a.linkage:hover, a.linkage:focus {
     position: fixed;
     bottom: 10px;
     z-index: 1000;
+    display: block;
 }
 
 .inner {

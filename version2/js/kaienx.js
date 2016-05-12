@@ -60,7 +60,7 @@ $(window).load(function () {
         kind: 'picasa',
         userID: '110838454337071281550',
         thumbnailWidth: 165,
-        thumbnailHeight: 110,
+        thumbnailHeight: 'auto',
         thumbnailHoverEffect: 'labelSlideUp,borderLighter',
         thumbnailLabel: { display: true, align: 'center' },
         galleryToolbarHideIcons: true,
@@ -69,6 +69,28 @@ $(window).load(function () {
         touchAutoOpenDelay: -1,
         locationHash: false
     });
+
+    //scroll to top
+    
+        var scrollTrigger = 100, // px
+            backToTop = function () {
+                var scrollTop = $('#nanoGallery2').scrollTop();
+                if (scrollTop > scrollTrigger) {
+                    $('#back-to-top').addClass('show');
+                } else {
+                    $('#back-to-top').removeClass('show');
+                }
+            };
+        backToTop();
+        $('#nanoGallery2').on('scroll', function () {
+            backToTop();
+        });
+        $('#back-to-top').on('click', function (e) {
+            e.preventDefault();
+            $('#nanoGallery2').animate({
+                scrollTop: 0
+            }, 700);
+        });
 });
 
 window.onresize = function () {
@@ -89,4 +111,6 @@ function resizeShits() {
     //    console.log(number)
     //}, 2500);
 }
+
+
 

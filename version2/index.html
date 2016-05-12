@@ -27,7 +27,7 @@
     <link href='https://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
     <!-- Custom CSS -->
     <link href="nano/css/nanogallery.min.css" rel="stylesheet" type="text/css">
-
+    <link href="lightgallery/css/lightgallery.min.css" rel="stylesheet" />
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/kaienx.css" rel="stylesheet" />
     <!-- Custom Theme JavaScript -->
@@ -35,15 +35,21 @@
 
     <!-- Nano Gallery -->
     <script type="text/javascript" src="nano/jquery.nanogallery.min.js"></script>
-
+    <!-- Vimeo JS -->
+    <script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
+    <!-- Light Gallery -->
+    <script src="lightgallery/js/lightgallery.min.js"></script>
+    <script src="lightgallery/js/lg-video.min.js"></script>
+    <script src="lightgallery/js/lg-thumbnail.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="js/bootstrap.min.js"></script>
     <!-- Swiper JS -->
     <script src="js/swiper.min.js"></script>
-
+    <!-- TypeWriter JS -->
     <script src="js/typewriter.js"></script>
+    <!-- Wow JS -->
     <script src="js/wow.min.js"></script>
-    
+
     <script src="js/kaienx.js"></script>
 
 </head>
@@ -53,7 +59,7 @@
     <div id="top-nav">
         <div class="row-fluid">
             <div class="col-sm-12 text-center">
-                <a onclick="swiper.slideTo(1)" class="linkage">
+                <a onclick="swiper.slideTo(0)" class="linkage">
                     <img id="logo-resizer" src="images/logo-56x56.gif" class="logo" onmouseover="this.src = 'images/loader.gif'" onmouseout=" this.src='images/logo-56x56.gif' " />
                 </a>
             </div>
@@ -61,10 +67,10 @@
         <div class="row-fluid">
             <div class="col-sm-12 text-center" style="background-color: #FFF;">
                 <div class="col-md-4 col-md-offset-4">
-                    <a onclick="swiper.slideTo(2)" class="linkage">ABOUT.</a>
-                    <a onclick="swiper.slideTo(3)" class="linkage">PHOTOS.</a>
-                    <a onclick="swiper.slideTo(4)" class="linkage">VIDEOS.</a>
-                    <a onclick="swiper.slideTo(5)" class="linkage">CONTACT.</a>
+                    <a onclick="swiper.slideTo(1)" class="linkage">ABOUT.</a>
+                    <a onclick="swiper.slideTo(2)" class="linkage">PHOTOS.</a>
+                    <a onclick="swiper.slideTo(3)" class="linkage">VIDEOS.</a>
+                    <a onclick="swiper.slideTo(4)" class="linkage">CONTACT.</a>
                 </div>
             </div>
         </div>
@@ -93,14 +99,14 @@
                                     the necessary things for all your needs.
                                 </p>
                                 <p class="sub">
-                                    Let's <a onclick="swiper.slideTo(5)">talk</a> over a cup of <em style="color: #FF82EF;">bandung</em> sometime :)
+                                    Let's <a onclick="swiper.slideTo(4)">talk</a> over a cup of <em style="color: #FF82EF;">bandung</em> sometime :)
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide" data-hash="slide3" style="background-image:url(images/portfolio/background-03.jpg)">
                         <div class="outer">
-                            <!--<div style="position:absolute; bottom:10px; right: 50%; z-index:10000; text-align:right;   width: 50px;     height: 40px;">-->
+                          
                             <div class="inner">
                                 <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-arrow-circle-up fa-4x" aria-hidden="true"></i></a>
                             </div>
@@ -111,7 +117,9 @@
 
                     </div>
                     <div class="swiper-slide" data-hash="slide4" style="background-image:url(images/portfolio/background-04.jpg)">
-
+                            <div id="video-gallery" class="col-md-12 overflow-scroll" >
+                             
+                            </div>
                     </div>
                     <div class="swiper-slide" data-hash="slide5" style="background-image:url(images/portfolio/background-05.jpg);">
                         <div class="table-div">
@@ -171,10 +179,10 @@
                                                     <!-- Button -->
                                                     <div class="form-group margin-top-25">
                                                         <div class="col-md-1">
-                                                            <button id="form-submit" name="form-submit" class="btn btn-default" style="margin-bottom: 25px;" onclick="testSubmit(); return false;" >Submit</button>
+                                                            <button id="form-submit" name="form-submit" class="btn btn-default" style="margin-bottom: 25px;">Submit</button>
                                                         </div>
                                                     </div>
-                                                    
+
                                                 </fieldset>
                                             </form>
                                         </div>
@@ -254,6 +262,7 @@
             document.getElementById('copyright-date').innerText = year;
         };
         resizeShits();
+        
     </script>
 </body>
 </html>

@@ -201,6 +201,7 @@ address {
 
 .linkage {
     margin: 0 2% 0 2%;
+    cursor:pointer;
 }
 
 a.linkage:hover, a.linkage:focus {
@@ -330,4 +331,7 @@ a.linkage:hover, a.linkage:focus {
 
 .inner {
     display: inline-block;
+}
+.item img {
+    padding:15px;
 }

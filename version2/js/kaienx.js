@@ -8,7 +8,7 @@ $(window).load(function () {
     swiper = new Swiper('.swiper-container', {
         slideToClickedSlide: true,
         spaceBetween: 30,
-        loop: true,
+        loop: false,
         threshold: 100,
         simulateTouch: false
     });
@@ -29,7 +29,7 @@ $(window).load(function () {
     $("#nanoGallery2").nanoGallery({
         kind: 'picasa',
         userID: '110838454337071281550',
-        thumbnailWidth: 410,
+        thumbnailWidth: 210,
         thumbnailHeight: 'auto',
         thumbnailHoverEffect: 'labelSlideUp,borderLighter',
         thumbnailLabel: { display: true, align: 'center' },
@@ -62,12 +62,9 @@ $(window).load(function () {
             }, 700);
         });
     }
-    $(document).on('submit', '#form-contact', function (e) {
-        console.log("TEST")
-        $('input').each(function (input, item) {
-            var value = $(item).val();
-            console.log(value);
-        });
+    $("#form-contact").submit(function (evt) {
+        evt.preventDefault();
+
         var userName = $("#form-name").val();
         var userPhone = $("#form-phone").val();
         var userEmail = $("#form-email").val();
@@ -97,6 +94,7 @@ $(window).load(function () {
         });
         return false;
     });
+    loadPosts();
 });
 
 
@@ -111,6 +109,43 @@ function resizeShits() {
     $('.overflow-scroll').css('height', str);
     $('.overflow-scroll').css('width', "100%");
 
+}
+function loadPosts() {
+
+    var key = "api_key=nSlp93ivVTteusCXvKX0o5PCnTo9fIhx1elpCuLTLCj97xlcE5";
+    var api = "https://api.tumblr.com/v2/blog/kaien-x2.tumblr.com/";
+    var retrieve_more = function (offset) {
+        var t_data = $.getJSON(api + "posts/video?callback=?&filter=video&limit=20&offset=" + offset + "&" + key, function (data) {
+            $.each(data.response.posts, function (i, item) {
+                var content = item.player[2].embed_code;
+                var caption = item.caption;
+                var source_url = item.source_url;
+                var numb = source_url.match(/\d/g);
+                numb = numb.join("");
+                var source_id = "https://vimeo.com/" + numb;
+                $.getJSON('http://www.vimeo.com/api/v2/video/' + numb + '.json?callback=?', { format: "json" }, function (data) {
+                    $("#video-gallery").append('<div class="col-md-4"><a class="item" href="' + source_id + '" data-poster="' + data[0].thumbnail_large + '"><img src="' + data[0].thumbnail_large + '" style="width:100%;"></a></div>')
+                    
+                });
+               
+                
+            });
+           
+            if (data.response.posts.length == 20) {
+                retrieve_more(offset + 20);
+            }
+
+        });
+    };
+    
+    retrieve_more(0);
+    setTimeout(function () {
+        $('#video-gallery').lightGallery({
+            loadVimeoThumbnail: true,
+            vimeoThumbSize: 'thumbnail_medium',
+            selector: '.item'
+        });
+    }, 2500);
 }
 
 

@@ -218,7 +218,7 @@ a.linkage:hover, a.linkage:focus {
         height: 80%;
     }
 
-    /*.overflow-scroll {
+    #contact-form {
         overflow-x: visible !important;
         overflow-y: visible !important;
         height: auto !important;

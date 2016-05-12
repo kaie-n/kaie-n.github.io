@@ -46,9 +46,9 @@ $(window).load(function () {
             backToTop = function () {
                 var scrollTop = $('#nanoGallery2').scrollTop();
                 if (scrollTop > scrollTrigger) {
-                    $('#back-to-top').fadeIn("slow")
+                    $('#back-to-top').addClass('show')
                 } else {
-                    $('#back-to-top').fadeOut("slow")
+                    $('#back-to-top').removeClass("show")
                 }
             };
         backToTop();

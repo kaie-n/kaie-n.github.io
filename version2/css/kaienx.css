@@ -306,8 +306,9 @@ a.linkage:hover, a.linkage:focus {
     cursor: pointer;
     border: 0;
     text-decoration: none;
-    
-    display:none;
+    transition: opacity 0.2s ease-out;
+    opacity: 0;
+    display: none;
     font-size: 20px;
 }
 
@@ -315,13 +316,14 @@ a.linkage:hover, a.linkage:focus {
     }
 
     #back-to-top.show {
+        display:block;
         opacity: 1;
     }
 
 .outer {
     width: 100%;
     text-align: center;
-    position: fixed;
+    position: absolute;
     bottom: 100px;
     z-index: 1000;
     display: block;

@@ -1,4 +1,4 @@
-﻿var swiper
+﻿var swiper;
 $(window).load(function () {
     var text = $('.quote').data('text');
     typeWriter(text, 0);
@@ -13,9 +13,58 @@ $(window).load(function () {
         simulateTouch: false
     });
 
-    $("#form-contact").submit(function (evt) {
-        evt.preventDefault();
 
+
+    //change text alittle bit here and there
+    var text = ["video", "event", "project", "wedding", "engagement", "web design", "animation", "logo", "photography"];
+    var counter = 0;
+    var elem = document.getElementById("project");
+    setInterval(change, 1000);
+    function change() {
+        elem.innerHTML = text[counter];
+        counter++;
+        if (counter >= text.length) { counter = 0; }
+    }
+
+    $("#nanoGallery2").nanoGallery({
+        kind: 'picasa',
+        userID: '110838454337071281550',
+        thumbnailWidth: 410,
+        thumbnailHeight: 'auto',
+        thumbnailHoverEffect: 'labelSlideUp,borderLighter',
+        thumbnailLabel: { display: true, align: 'center' },
+        galleryToolbarHideIcons: true,
+        displayBreadcrumb: false,
+        galleryToolbarWidthAligned: false,
+        touchAutoOpenDelay: -1,
+        locationHash: false
+    });
+
+    //scroll to top
+    if ($('#back-to-top').length) {
+        var scrollTrigger = 100, // px
+            backToTop = function () {
+                var scrollTop = $('#nanoGallery2').scrollTop();
+                if (scrollTop > scrollTrigger) {
+                    $('#back-to-top').addClass('show');
+                } else {
+                    $('#back-to-top').removeClass('show');
+                }
+            };
+        backToTop();
+        $('#nanoGallery2').on('scroll', function () {
+            backToTop();
+        });
+        $('#back-to-top').on('click', function (e) {
+            e.preventDefault();
+            $('#nanoGallery2').animate({
+                scrollTop: 0
+            }, 700);
+        });
+    }
+    $(document).on('submit', '#form-contact', function (e) {
+        console.log("TEST")
+       
         var userName = $("#form-name").val();
         var userPhone = $("#form-phone").val();
         var userEmail = $("#form-email").val();
@@ -43,55 +92,11 @@ $(window).load(function () {
             //$("#contact-form-success").css('display', 'block')
             //$("#contact-form-success").append("<p>I have received your request</p><p class='sub'>You may have a sip of coffee while waiting for my reply.</p><p class='sub'>Thank you!</p>");
         });
+        return false;
     });
-   
-    //change text alittle bit here and there
-    var text = ["video", "event", "project", "wedding", "engagement", "web design", "animation", "logo", "photography"];
-    var counter = 0;
-    var elem = document.getElementById("project");
-    setInterval(change, 1000);
-    function change() {
-        elem.innerHTML = text[counter];
-        counter++;
-        if (counter >= text.length) { counter = 0; }
-    }
-
-    $("#nanoGallery2").nanoGallery({
-        kind: 'picasa',
-        userID: '110838454337071281550',
-        thumbnailWidth: 165,
-        thumbnailHeight: 'auto',
-        thumbnailHoverEffect: 'labelSlideUp,borderLighter',
-        thumbnailLabel: { display: true, align: 'center' },
-        galleryToolbarHideIcons: true,
-        displayBreadcrumb: false,
-        galleryToolbarWidthAligned: false,
-        touchAutoOpenDelay: -1,
-        locationHash: false
-    });
-
-    //scroll to top
-    
-        var scrollTrigger = 100, // px
-            backToTop = function () {
-                var scrollTop = $('#nanoGallery2').scrollTop();
-                if (scrollTop > scrollTrigger) {
-                    $('#back-to-top').addClass('show');
-                } else {
-                    $('#back-to-top').removeClass('show');
-                }
-            };
-        backToTop();
-        $('#nanoGallery2').on('scroll', function () {
-            backToTop();
-        });
-        $('#back-to-top').on('click', function (e) {
-            e.preventDefault();
-            $('#nanoGallery2').animate({
-                scrollTop: 0
-            }, 700);
-        });
 });
+
+
 
 window.onresize = function () {
     resizeShits();
@@ -99,18 +104,10 @@ window.onresize = function () {
 
 function resizeShits() {
     bg = document.getElementById('child');
-    var str =  bg.clientHeight + "px";
+    var str = bg.clientHeight + "px";
     $('.overflow-scroll').css('height', str);
     $('.overflow-scroll').css('width', "100%");
-    //setTimeout(function () {
-    //    bg = document.getElementById('form-half-width');
-    //    // change form height accordingly :D
-    //    var number = Math.round(0.7 * bg.clientWidth);
-    //    var formWidth = String(number) + "px";
-    //    $('#form-contact').css('width', formWidth)
-    //    console.log(number)
-    //}, 2500);
-}
 
+}
 
 

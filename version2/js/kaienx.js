@@ -34,7 +34,6 @@ $(window).load(function () {
         thumbnailHoverEffect: 'labelSlideUp,borderLighter',
         thumbnailLabel: { display: true, align: 'center' },
         galleryToolbarHideIcons: true,
-        displayBreadcrumb: false,
         galleryToolbarWidthAligned: false,
         touchAutoOpenDelay: -1,
         locationHash: false

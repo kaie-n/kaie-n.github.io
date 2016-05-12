@@ -64,7 +64,10 @@ $(window).load(function () {
     }
     $(document).on('submit', '#form-contact', function (e) {
         console.log("TEST")
-       
+        $('input').each(function (input, item) {
+            var value = $(item).val();
+            console.log(value);
+        });
         var userName = $("#form-name").val();
         var userPhone = $("#form-phone").val();
         var userEmail = $("#form-email").val();

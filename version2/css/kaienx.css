@@ -133,7 +133,6 @@ address {
     }
 
     .table-div-cell p {
-        text-align: center;
         font-size: 30px;
         text-transform: uppercase;
         letter-spacing: 5px;
@@ -141,7 +140,6 @@ address {
     }
 
         .table-div-cell p.sub {
-            text-align: center;
             font-size: 24px;
             text-transform: none;
             font-weight: 300;

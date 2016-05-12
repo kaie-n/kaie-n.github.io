@@ -63,7 +63,9 @@ $(window).load(function () {
         thumbnailHeight: 110,
         galleryToolbarHideIcons: true,
         displayBreadcrumb: false,
-        galleryToolbarWidthAligned: false
+        galleryToolbarWidthAligned: false,
+        touchAutoOpenDelay: -1,
+        locationHash: false
     });
 });
 
@@ -86,26 +88,3 @@ function resizeShits() {
     //}, 2500);
 }
 
-
-var iOs = agent.indexOf('iphone') >= 0 || agent.indexOf('ipad') >= 0; 
-var clickEvent = iOs ? 'touchend' : 'click';
-var touchMoving = false;
-if (iOs)
-{  
-    document.ontouchmove = function(e)
-    {
-        touchMoving = true;
-    }
-
-    document.ontouchend = function(e)
-    {
-        touchMoving = false;
-    }
-} 
-
-$(document).bind('ready', function () {
-    $(a).bind(clickEvent, function () {
-        if (touchMoving) return false;
-        // your code here
-    });
-});

@@ -286,7 +286,9 @@ a.linkage:hover, a.linkage:focus {
     -o-box-sizing: border-box;
     font-size: 12px;
 }
-
+.nanogallery_theme_default #nanoGalleryViewer .toolbarContainer {
+   visibility:hidden !important;
+}
 #back-to-top {
     z-index: 9999;
     text-align: center;

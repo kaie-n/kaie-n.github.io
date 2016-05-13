@@ -226,7 +226,7 @@ a.linkage:hover, a.linkage:focus {
         -webkit-overflow-scrolling: touch !important;
     }
 
-    */
+    
 }
 
 #nanoGallery2 {
@@ -255,6 +255,7 @@ a.linkage:hover, a.linkage:focus {
     display: block;
     width: 100%;
     overflow: hidden;
+    font-size: 12px;
 }
 
 .nanogallery_theme_default .nanoGalleryContainer .nanoGalleryThumbnailContainer .labelFolderTitle:before {

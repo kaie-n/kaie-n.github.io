@@ -329,6 +329,12 @@ a.linkage:hover, a.linkage:focus {
     right: 20px;
 }
 
+@media (min-width: 768px) {
+    .outer {
+        right: 50px;
+    }
+}
+
 .inner {
     display: inline-block;
 }

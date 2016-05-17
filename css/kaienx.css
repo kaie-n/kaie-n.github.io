@@ -197,6 +197,7 @@ address {
     position: fixed;
     width: 100%;
     z-index: 256;
+    background: #FFF;
 }
 
 .linkage {

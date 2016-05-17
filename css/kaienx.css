@@ -201,7 +201,7 @@ address {
 
 .linkage {
     margin: 0 2% 0 2%;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 a.linkage:hover, a.linkage:focus {
@@ -225,8 +225,6 @@ a.linkage:hover, a.linkage:focus {
         height: auto !important;
         -webkit-overflow-scrolling: touch !important;
     }
-
-    
 }
 
 #nanoGallery2 {
@@ -244,6 +242,7 @@ a.linkage:hover, a.linkage:focus {
     padding: 0;
     background-color: transparent;
 }
+
 .nanogallery_theme_default .nanoGalleryBreadcrumb {
     margin: 1px;
     padding: 4px;
@@ -316,22 +315,24 @@ a.linkage:hover, a.linkage:focus {
     }
 
     #back-to-top.show {
-        display:block;
+        display: block;
         opacity: 1;
     }
 
 .outer {
-    width: 100%;
-    text-align: center;
+    text-align: right;
     position: absolute;
-    bottom: 100px;
+    bottom: 110px;
     z-index: 1000;
     display: block;
+    margin: 0 auto;
+    right: 20px;
 }
 
 .inner {
     display: inline-block;
 }
+
 .item img {
-    padding:15px;
+    padding: 15px;
 }

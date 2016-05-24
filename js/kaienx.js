@@ -10,7 +10,19 @@ $(window).load(function () {
         spaceBetween: 30,
         loop: false,
         threshold: 100,
-        simulateTouch: false
+        simulateTouch: false,
+        onSlideChangeStart: function (swiper) {
+          
+
+            if (swiper.activeIndex != 2) {
+                
+                $('#nanoGallery2').animate({
+                    scrollTop: 0
+                }, 700);
+                backToTop();
+            }
+            //before Event use it for your purpose
+        }
     });
 
 
@@ -29,6 +41,18 @@ $(window).load(function () {
     $("#nanoGallery2").nanoGallery({
         kind: 'picasa',
         userID: '110838454337071281550',
+        thumbnailWidth: 210,
+        thumbnailHeight: 'auto',
+        thumbnailHoverEffect: 'labelSlideUp,borderLighter',
+        thumbnailLabel: { display: true, align: 'center' },
+        galleryToolbarHideIcons: true,
+        galleryToolbarWidthAligned: false,
+        touchAutoOpenDelay: -1,
+        locationHash: false
+    });
+    $("#nanoGallery3").nanoGallery({
+        kind: 'picasa',
+        userID: '109844609354000166046',
         thumbnailWidth: 210,
         thumbnailHeight: 'auto',
         thumbnailHoverEffect: 'labelSlideUp,borderLighter',
@@ -124,12 +148,12 @@ function loadPosts() {
                 var source_id = "https://vimeo.com/" + numb;
                 $.getJSON('http://www.vimeo.com/api/v2/video/' + numb + '.json?callback=?', { format: "json" }, function (data) {
                     $("#video-gallery").append('<div class="col-md-4"><a class="item" href="' + source_id + '"><img src="' + data[0].thumbnail_large + '" style="width:100%;"></a></div>')
-                    
+
                 });
-               
-                
+
+
             });
-           
+
             if (data.response.posts.length == 20) {
                 retrieve_more(offset + 20);
             }
@@ -142,9 +166,9 @@ function loadPosts() {
             }, 2500);
         });
     };
-    
+
     retrieve_more(0);
-   
+
 }
 function waitForElementToDisplay(selector, time) {
     if (document.querySelector(selector) != null) {

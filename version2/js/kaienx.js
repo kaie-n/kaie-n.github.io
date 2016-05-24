@@ -10,7 +10,21 @@ $(window).load(function () {
         spaceBetween: 30,
         loop: false,
         threshold: 100,
-        simulateTouch: false
+        simulateTouch: false,
+        onSlideChangeStart: function (swiper) {
+            console.log('slide change start - before');
+            console.log(swiper);
+            console.log(swiper.activeIndex);
+
+            if(swiper.activeIndex != 2){
+                e.preventDefault();
+                $('#nanoGallery2').animate({
+                    scrollTop: 0
+                }, 700);
+                backToTop();
+            }
+            //before Event use it for your purpose
+        }
     });
 
 

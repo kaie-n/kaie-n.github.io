@@ -306,9 +306,9 @@ a.linkage:hover, a.linkage:focus {
     cursor: pointer;
     border: 0;
     text-decoration: none;
-    transition: opacity 0.2s ease-out;
+    transition: opacity 0.5s ease-out;
     opacity: 0;
-    display: none;
+    visibility: hidden;
     font-size: 20px;
 }
 
@@ -316,7 +316,7 @@ a.linkage:hover, a.linkage:focus {
     }
 
     #back-to-top.show {
-        display: block;
+        visibility:visible;
         opacity: 1;
     }
 

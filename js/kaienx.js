@@ -53,14 +53,15 @@ $(window).load(function () {
     $("#nanoGallery3").nanoGallery({
         kind: 'picasa',
         userID: '109844609354000166046',
-        thumbnailWidth: 210,
+        thumbnailWidth: 300,
         thumbnailHeight: 'auto',
         thumbnailHoverEffect: 'labelSlideUp,borderLighter',
         thumbnailLabel: { display: true, align: 'center' },
         galleryToolbarHideIcons: true,
         galleryToolbarWidthAligned: false,
         touchAutoOpenDelay: -1,
-        locationHash: false
+        locationHash: false,
+        albumSorting: 'titleAsc'
     });
 
     //scroll to top

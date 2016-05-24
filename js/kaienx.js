@@ -48,7 +48,8 @@ $(window).load(function () {
         galleryToolbarHideIcons: true,
         galleryToolbarWidthAligned: false,
         touchAutoOpenDelay: -1,
-        locationHash: false
+        locationHash: false,
+        albumSorting: 'titleAsc'
     });
     $("#nanoGallery3").nanoGallery({
         kind: 'picasa',

@@ -1,4 +1,27 @@
 ﻿var swiper;
+var currentSlider;
+function backToTop(target) {
+    var scrollTrigger = 100, // px      
+    scrollTop = target.scrollTop();
+    var tween;
+    if (scrollTop > scrollTrigger) {
+        currentSlider = target;
+        tween = TweenMax.to($('#back-to-top'), 0.5, { alpha: 1, onStart: showClass, onStartParams: [true] })
+        //$('#back-to-top').addClass('show')
+        return true;
+    } else {
+        currentSlider = undefined;
+        tween = TweenMax.to($('#back-to-top'), 0.5, { alpha: 0, onComplete: showClass, onCompleteParams: [false] })
+        //$('#back-to-top').removeClass("show")
+        return false;
+    }
+          
+}
+function testScroll(target) {
+    if (backToTop(target)) {
+        animateToTop(target);
+    }
+}
 $(window).load(function () {
     var text = $('.quote').data('text');
     typeWriter(text, 0);
@@ -12,15 +35,30 @@ $(window).load(function () {
         threshold: 100,
         simulateTouch: false,
         onSlideChangeStart: function (swiper) {
-          
-
-            if (swiper.activeIndex != 2) {
-                
-                $('#nanoGallery2').animate({
-                    scrollTop: 0
-                }, 700);
-                backToTop();
+            $('.linkage').each(function () {
+                $(this).blur();
+                //console.log($(this).attr("data-src"));
+                if ($(this).attr("data-src") == swiper.activeIndex) {
+                    $(this).addClass('thick');
+                    $(this).removeClass('normal');
+                }
+                else {
+                    $(this).removeClass('thick');
+                    $(this).addClass('normal');
+                }
+            });
+            if (currentSlider != undefined) {
+                animateToTop(currentSlider);
             }
+            //testScroll($('#nanoGallery2'));
+            //testScroll($('#nanoGallery3'));
+            //testScroll($('#video-gallery'));
+            //if (backToTop($('#nanoGallery2'))){
+            //    animateToTop($('#nanoGallery2'));
+            //}
+            //animateToTop($('#nanoGallery3'));
+            //animateToTop($('#video-gallery'));
+
             //before Event use it for your purpose
         }
     });
@@ -67,24 +105,31 @@ $(window).load(function () {
 
     //scroll to top
     if ($('#back-to-top').length) {
-        var scrollTrigger = 100, // px
-            backToTop = function () {
-                var scrollTop = $('#nanoGallery2').scrollTop();
-                if (scrollTop > scrollTrigger) {
-                    $('#back-to-top').addClass('show')
-                } else {
-                    $('#back-to-top').removeClass("show")
-                }
-            };
-        backToTop();
+
         $('#nanoGallery2').on('scroll', function () {
-            backToTop();
+            backToTop($('#nanoGallery2'));
+        });
+        $('#nanoGallery3').on('scroll', function () {
+            backToTop($('#nanoGallery3'));
+        });
+        $('#video-gallery').on('scroll', function () {
+            backToTop($('#video-gallery'));
         });
         $('#back-to-top').on('click', function (e) {
             e.preventDefault();
-            $('#nanoGallery2').animate({
-                scrollTop: 0
-            }, 700);
+            if (swiper.activeIndex == 2) {
+
+                animateToTop($('#nanoGallery2'));
+            }
+            if (swiper.activeIndex == 3) {
+
+                animateToTop($('#nanoGallery3'));
+            }
+            if (swiper.activeIndex == 4) {
+
+                animateToTop($('#video-gallery'));
+            }
+
         });
     }
     $("#form-contact").submit(function (evt) {
@@ -121,7 +166,11 @@ $(window).load(function () {
     });
     loadPosts();
 });
-
+function animateToTop(target) {
+    target.animate({
+        scrollTop: 0
+    }, 500);
+}
 window.addEventListener('orientationchange', resizeShits);
 
 window.onresize = function () {
@@ -134,6 +183,14 @@ function resizeShits() {
     $('.overflow-scroll').css('height', str);
     $('.overflow-scroll').css('width', "100%");
 
+}
+
+function showClass(bool) {
+    if (bool) {
+        $('#back-to-top').addClass('show')
+    } else {
+        $('#back-to-top').removeClass('show')
+    }
 }
 function loadPosts() {
 

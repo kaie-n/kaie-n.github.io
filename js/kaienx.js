@@ -28,7 +28,7 @@ $(window).load(function () {
 
 
     //change text alittle bit here and there
-    var text = ["video", "event", "project", "wedding", "engagement", "web design", "animation", "logo", "photography, application"];
+    var text = ["video", "event", "project", "wedding", "engagement", "web design", "animation", "logo", "photography", "application"];
     var counter = 0;
     var elem = document.getElementById("project");
     setInterval(change, 1000);

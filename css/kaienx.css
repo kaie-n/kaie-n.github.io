@@ -307,7 +307,7 @@ address {
 }
 
 .nanogallery_theme_default .nanoGalleryNavigationbarContainer {
-    margin: 20px auto;
+    max-height: initial !important;
     padding: 5px 0;
     display: block;
 }

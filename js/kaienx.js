@@ -8,11 +8,10 @@ function backToTop(target) {
         currentSlider = target;
         tween = TweenMax.to($('#back-to-top'), 0.5, { alpha: 1, onStart: showClass, onStartParams: [true] })
         //$('#back-to-top').addClass('show')
-        return true;
     } else {
+        currentSlider = undefined;
         tween = TweenMax.to($('#back-to-top'), 0.5, { alpha: 0, onComplete: showClass, onCompleteParams: [false] })
         //$('#back-to-top').removeClass("show")
-        return false;
     }
           
 }
@@ -30,7 +29,6 @@ $(window).load(function () {
         simulateTouch: false,
         onSlideChangeStart: function (swiper) {
             $('.linkage').each(function () {
-                $(this).blur();
                 //console.log($(this).attr("data-src"));
                 if ($(this).attr("data-src") == swiper.activeIndex) {
                     $(this).addClass('thick');
@@ -43,6 +41,7 @@ $(window).load(function () {
             });
             if (currentSlider != undefined) {
                 animateToTop(currentSlider);
+                currentSlider = undefined;
             }
             //testScroll($('#nanoGallery2'));
             //testScroll($('#nanoGallery3'));

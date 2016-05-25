@@ -97,6 +97,7 @@ address {
     color: #FFFFFF;
     display: table-cell;
     vertical-align: middle;
+        padding: 20px;
 }
 
     .table-div-cell a {
@@ -131,7 +132,9 @@ address {
     .swiper-slide {
         font-size: 30px;
     }
-
+    .table-div-cell{
+            padding: initial;
+    }
     .table-div-cell p {
         font-size: 30px;
         text-transform: uppercase;
@@ -298,11 +301,19 @@ a.linkage:hover, a.linkage:focus {
 .nanogallery_theme_default #nanoGalleryViewer .toolbarContainer {
     visibility: hidden !important;
 }
+
 .nanogallery_theme_default .nanoGalleryNavigationbarContainer {
     margin: 20px auto;
     padding: 5px 0;
     display: block;
 }
+.float-text {
+    width:56px;
+    height:56px;
+    margin:0 auto;
+    z-index:1;
+}
+
 #back-to-top {
     z-index: 9999;
     text-align: center;
@@ -320,7 +331,7 @@ a.linkage:hover, a.linkage:focus {
     }
 
     #back-to-top.show {
-        visibility:visible;
+        visibility: visible;
         opacity: 1;
     }
 

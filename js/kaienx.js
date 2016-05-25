@@ -107,7 +107,8 @@ $(window).load(function () {
         galleryToolbarWidthAligned: false,
         touchAutoOpenDelay: -1,
         locationHash: false,
-        albumSorting: 'titleAsc'
+        albumSorting: 'titleAsc',
+        photoSorting: 'titleAsc'
     });
 
     //reset Scrolls?

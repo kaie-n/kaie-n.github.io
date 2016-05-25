@@ -16,8 +16,8 @@ function backToTop(target) {
           
 }
 $(window).load(function () {
-    var text = $('.quote').data('text');
-    typeWriter(text, 0);
+    //var text = $('.quote').data('text');
+    //typeWriter(text, 0);
     wow = new WOW();
     wow.init();
     $(".sub").removeClass('hideAfterFade')
@@ -95,6 +95,20 @@ $(window).load(function () {
         locationHash: false,
         albumSorting: 'titleAsc'
     });
+    $("#nanoGallery4").nanoGallery({
+        kind: 'picasa',
+        userID: '110392175344977306699',
+        album: '6288643191837946593',
+        thumbnailWidth: 250,
+        thumbnailHeight: 'auto',
+        thumbnailHoverEffect: 'labelSlideUp,borderLighter',
+        thumbnailLabel: { display: true, align: 'center' },
+        galleryToolbarHideIcons: true,
+        galleryToolbarWidthAligned: false,
+        touchAutoOpenDelay: -1,
+        locationHash: false,
+        albumSorting: 'titleAsc'
+    });
 
     //reset Scrolls?
     $('body').on('click', 'a.myclass', function () {
@@ -112,8 +126,15 @@ $(window).load(function () {
         $('#video-gallery').on('scroll', function () {
             backToTop($('#video-gallery'));
         });
+        $('#nanoGallery4').on('scroll', function () {
+            backToTop($('#nanoGallery4'));
+        });
         $('#back-to-top').on('click', function (e) {
             e.preventDefault();
+            if (swiper.activeIndex == 1) {
+
+                animateToTop($('#nanoGallery4'));
+            }
             if (swiper.activeIndex == 2) {
 
                 animateToTop($('#nanoGallery2'));

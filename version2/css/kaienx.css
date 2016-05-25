@@ -297,7 +297,11 @@ a.linkage:hover, a.linkage:focus {
 .nanogallery_theme_default #nanoGalleryViewer .toolbarContainer {
     visibility: hidden !important;
 }
-
+.nanogallery_theme_default .nanoGalleryNavigationbarContainer {
+    margin: 20px auto;
+    padding: 5px 0;
+    display: block;
+}
 #back-to-top {
     z-index: 9999;
     text-align: center;

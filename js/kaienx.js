@@ -54,7 +54,7 @@ $(window).load(function () {
     $("#nanoGallery3").nanoGallery({
         kind: 'picasa',
         userID: '109844609354000166046',
-        thumbnailWidth: 300,
+        thumbnailWidth: 250,
         thumbnailHeight: 'auto',
         thumbnailHoverEffect: 'labelSlideUp,borderLighter',
         thumbnailLabel: { display: true, align: 'center' },

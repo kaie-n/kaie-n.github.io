@@ -2,9 +2,9 @@
 var currentSlider;
 function backToTop(target) {
     var scrollTrigger = 100, // px      
-    scrollTop = target.scrollTop();
+    scrollTest = target.scrollTop();
     var tween;
-    if (scrollTop > scrollTrigger) {
+    if (scrollTest > scrollTrigger) {
         currentSlider = target;
         tween = TweenMax.to($('#back-to-top'), 0.5, { alpha: 1, onStart: showClass, onStartParams: [true] })
         //$('#back-to-top').addClass('show')
@@ -97,6 +97,10 @@ $(window).load(function () {
         albumSorting: 'titleAsc'
     });
 
+    //reset Scrolls?
+    $('body').on('click', 'a.myclass', function () {
+        // do something
+    });
     //scroll to top
     if ($('#back-to-top').length) {
 

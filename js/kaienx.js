@@ -10,17 +10,11 @@ function backToTop(target) {
         //$('#back-to-top').addClass('show')
         return true;
     } else {
-        currentSlider = undefined;
         tween = TweenMax.to($('#back-to-top'), 0.5, { alpha: 0, onComplete: showClass, onCompleteParams: [false] })
         //$('#back-to-top').removeClass("show")
         return false;
     }
           
-}
-function testScroll(target) {
-    if (backToTop(target)) {
-        animateToTop(target);
-    }
 }
 $(window).load(function () {
     var text = $('.quote').data('text');

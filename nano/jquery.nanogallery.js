@@ -8254,7 +8254,7 @@ nanoGALLERY v5.10.1 release notes.
       }
       G.$E.vwImgC.addClass('imgCurrent');
         // under this line
-      console.log(G.I, "SRC?")
+      //console.log(G.I, "SRC?")
       if (G.I[imageIdx].src.split('.').pop() == "mp4") {
           $(".imgCurrent").css({ visibility: 'hidden' });
           var str = G.I[imageIdx].src.substring(G.I[imageIdx].src.lastIndexOf("/"))

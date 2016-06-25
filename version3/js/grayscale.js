@@ -27,7 +27,7 @@ $(document).ready(function () {
             //Navigation
             anchors:['intro', 'about'],
             navigation: true,
-            navigationPosition: 'right',
+            navigationPosition: 'left',
             navigationTooltips: ['intro', 'about'],
             showActiveTooltip: false,
             slidesNavigation: true,

@@ -37,11 +37,8 @@ $(document).ready(function () {
 
                 //after leaving section 2
                 if (index == 2 && direction == 'down') {
-                  
                 }
-
                 else if (index == 2 && direction == 'up') {
-                 
                 }
             }
     });

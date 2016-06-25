@@ -33,7 +33,7 @@ h6 {
 
 p {
     margin: 0 0 25px;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 1.5;
 }
 
@@ -155,7 +155,7 @@ a {
     }
 
     .intro .intro-body .intro-text {
-        font-size: 18px;
+        font-size: 14px;
     }
 
 @media(min-width:768px) {
@@ -403,7 +403,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00222222', e
 
 .title {
     font-family: 'Kristi', cursive;
-    font-size: 4em;
+    font-size: 3em;
 }
 
 @media(min-width:767px) {

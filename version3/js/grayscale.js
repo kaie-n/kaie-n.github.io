@@ -23,6 +23,7 @@ $('.navbar-collapse ul li a').click(function() {
 });
 
 $(document).ready(function () {
+
     $('#fullpage').fullpage({
             //Navigation
             anchors:['intro', 'about'],
@@ -42,7 +43,7 @@ $(document).ready(function () {
                 }
             }
     });
-
+    $('.overlay').delay(1000).fadeOut(1200);
 });
 
 function waitForElementToDisplay(selector, time) {

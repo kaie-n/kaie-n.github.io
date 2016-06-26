@@ -471,3 +471,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00222222', e
 .form-group {
      margin-bottom: 0px; 
 }
+.padding-side{
+    padding:0 15px 0 15px;
+}

@@ -97,6 +97,7 @@ address {
     color: #FFFFFF;
     display: table-cell;
     vertical-align: middle;
+    padding: 20px;
 }
 
     .table-div-cell a {
@@ -132,20 +133,24 @@ address {
         font-size: 30px;
     }
 
-    .table-div-cell p {
-        font-size: 30px;
-        text-transform: uppercase;
-        letter-spacing: 5px;
-        font-family: 'oswald';
+    .table-div-cell {
+        padding: initial;
     }
 
-        .table-div-cell p.sub {
-            font-size: 24px;
-            text-transform: none;
-            font-weight: 300;
-            font-family: 'crimson';
-            letter-spacing: 1px;
+        .table-div-cell p {
+            font-size: 30px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-family: 'oswald';
         }
+
+            .table-div-cell p.sub {
+                font-size: 24px;
+                text-transform: none;
+                font-weight: 300;
+                font-family: 'crimson';
+                letter-spacing: 1px;
+            }
 }
 
 .hideAfterFade {
@@ -181,6 +186,16 @@ address {
     margin-top: -15px;
 }
 
+.thick {
+    color: #23527c;
+    text-decoration: underline;
+}
+
+.normal {
+    color: #337ab7 !important;
+    text-decoration: none !important;
+}
+
 @media (min-width: 768px) {
     .form-group {
         margin-bottom: -10px;
@@ -197,15 +212,12 @@ address {
     position: fixed;
     width: 100%;
     z-index: 256;
+    background: #FFF;
 }
 
 .linkage {
     margin: 0 2% 0 2%;
-    cursor:pointer;
-}
-
-a.linkage:hover, a.linkage:focus {
-    text-decoration: none;
+    cursor: pointer;
 }
 
 .overflow-scroll {
@@ -215,6 +227,7 @@ a.linkage:hover, a.linkage:focus {
 }
 
 @media (min-width: 768px) {
+
     .child {
         height: 80%;
     }
@@ -225,8 +238,6 @@ a.linkage:hover, a.linkage:focus {
         height: auto !important;
         -webkit-overflow-scrolling: touch !important;
     }
-
-    */
 }
 
 #nanoGallery2 {
@@ -244,6 +255,7 @@ a.linkage:hover, a.linkage:focus {
     padding: 0;
     background-color: transparent;
 }
+
 .nanogallery_theme_default .nanoGalleryBreadcrumb {
     margin: 1px;
     padding: 4px;
@@ -255,6 +267,7 @@ a.linkage:hover, a.linkage:focus {
     display: block;
     width: 100%;
     overflow: hidden;
+    font-size: 12px;
 }
 
 .nanogallery_theme_default .nanoGalleryContainer .nanoGalleryThumbnailContainer .labelFolderTitle:before {
@@ -297,44 +310,67 @@ a.linkage:hover, a.linkage:focus {
 .nanogallery_theme_default #nanoGalleryViewer .toolbarContainer {
     visibility: hidden !important;
 }
+
 .nanogallery_theme_default .nanoGalleryNavigationbarContainer {
-    margin: 20px auto;
+    max-height: initial !important;
     padding: 5px 0;
     display: block;
 }
+
+.float-text {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
 #back-to-top {
     z-index: 9999;
     text-align: center;
-    color: #FFF;
+    color: #a8a8a8;
     cursor: pointer;
     border: 0;
     text-decoration: none;
-    transition: opacity 0.2s ease-out;
     opacity: 0;
-    display: none;
     font-size: 20px;
+    display: none;
 }
 
-    #back-to-top:hover {
-    }
 
     #back-to-top.show {
-        display:block;
-        opacity: 1;
+        display: initial;
     }
 
 .outer {
-    width: 100%;
-    text-align: center;
+    text-align: right;
     position: absolute;
-    bottom: 100px;
+    bottom: 110px;
     z-index: 1000;
     display: block;
+    margin: 0 auto;
+    right: 20px;
+}
+
+@media (min-width: 768px) {
+    .outer {
+        right: 50px;
+    }
 }
 
 .inner {
     display: inline-block;
 }
+
 .item img {
-    padding:15px;
+    padding: 15px;
+}
+
+.custom-image {
+    max-width: 45%;
+}
+
+@media (min-width: 768px) {
+    .custom-image {
+        max-width: 52%;
+    }
 }

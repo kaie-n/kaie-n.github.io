@@ -29,16 +29,16 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" >
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <div class="overlay"></div>
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-            
-                <a class="navbar-brand page-scroll" href="#page-top">
-                    <img src="images/logo-56x56-white.gif" class="animated" />
-                </a>
-           
-            <!-- /.navbar-collapse -->
+
+        <a class="navbar-brand page-scroll" href="#page-top">
+            <img src="images/logo-56x56-white.gif" class="animated" />
+        </a>
+
+        <!-- /.navbar-collapse -->
         <!-- /.container -->
     </nav>
     <div id="fullpage">
@@ -55,85 +55,126 @@
                             <br />
                             He aspires to be a jack of all trades in the future to come.
                         </p>
-                        <p class="text-center clear-margin">
-                            <a class="btn page-scroll wow fadeInUp " data-wow-delay="2s">
-                                Scroll 
-                        <p class="text-center clear-margin">
+                        <p class="btn page-scroll wow fadeInUp" data-wow-delay="2s">
+                            Scroll
+                            <br /><br />
                             <i class="fa fa-long-arrow-down fa-4x "></i>
-                        </p>
-                        </a>
+                            <br /><br /><br />
                         </p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="section works-section">
-            <section  class="container-fluid clear-padding">
+            <div class="slide">
+                <section class="container-fluid clear-padding">
+                    <div class="row">
+                        <div class="col-lg-6 col-lg-offset-3 text-center" id="video-gallery">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/172271630?autoplay=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </div>
+                            <h1 class="title">Video Reel 2016</h1>
+                            <p class="intro-text clear-margin">A collection of his best works in a video reel for the year 2016.</p>
+                            <p class="intro-text clear-margin">To view more, please visit his <a href="https://vimeo.com/kaienx" class="active">vimeo</a> channel.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="slide"><h1 class="title">Coming Soon</h1></div>
+        </div>
+        <div class="section contact-section">
+            <section class="container-fluid clear-padding">
                 <div class="row">
-                    <div class="col-lg-12" id="video-gallery">
-                  
+                    <div class="col-lg-6 col-lg-offset-3 text-center" id="video-gallery">
+                        <div id="contact-form" class="overflow-scroll">
+                            <div class="col-lg-10 col-lg-offset-1">
+                                <p></p>
+                                <h1 class="title">Say hello!</h1>
+                                <div class="col-lg-6">
+                                    <p class="sub" style="text-align:justify; color: white !important">
+                                        <i class="fa fa-envelope"></i> <a href="mailto:contact@kaienx.com">contact@kaienx.com</a><br />
+                                        <i class="fa fa-phone"></i> +65 9126 6676
+                                    </p>
+                                    <p class="sub" style="text-align:justify">
+                                        You have a big project in your mind but couldn't bring it to life?
+                                        <br>
+                                        Why not shoot him an email and he will get back to you as soon as possible!
+                                    </p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <form id="form-contact" class="form-horizontal" action="//formspree.io/contact@kaienx.com" method="POST">
+                                        <fieldset>
+                                            <input type="text" name="_gotcha" style="display:none" />
+                                            <!--<input type="hidden" name="_next" value="#thanks" />-->
+                                            <!-- Form Name -->
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-md-12 control-label" for="form-name"></label>
+                                                <div class="col-md-12">
+                                                    <input id="form-name" name="form-name" type="text" placeholder="NAME" class="form-control input-md" required="">
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-md-12 control-label" for="form-email"></label>
+                                                <div class="col-md-12">
+                                                    <input id="form-email" name="_replyto" type="email" placeholder="EMAIL" class="form-control input-md" required="">
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-md-12 control-label" for="form-phone"></label>
+                                                <div class="col-md-12">
+                                                    <input id="form-phone" name="form-phone" type="tel" placeholder="PHONE NUMBER" class="form-control input-md">
+                                                </div>
+                                            </div>
+
+                                            <!-- Textarea -->
+                                            <div class="form-group">
+                                                <label class="col-md-12 control-label" for="form-message"></label>
+                                                <div class="col-md-12">
+                                                    <textarea class="form-control" id="form-message" name="form-message" placeholder="SO YOU REAALLY WANNA DRINK BANDUNG YEA?" required=""></textarea>
+                                                </div>
+                                            </div>
+                                            <!-- Button -->
+                                            <div class="form-group margin-top-25">
+                                                <div class="col-md-1">
+                                                    <button id="form-submit" name="form-submit" class="btn btn-default" style="margin-bottom: 25px;">Submit</button>
+                                                </div>
+                                            </div>
+
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
         </div>
-        <div class="section">Some section</div>
-        <div class="section">Some section</div>
     </div>
-
-    <!-- About Section -->
-    <!--<section id="about" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>About Grayscale</h2>
-                <p>Grayscale is a free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, simply download the template on <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-                <p>This theme features stock photos by <a href="http://gratisography.com/">Gratisography</a> along with a custom Google Maps skin courtesy of <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
-                <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.</p>
-            </div>
-        </div>
-    </section>-->
-    <!-- Download Section -->
-    <section id="download" class="content-section text-center">
-        <div class="download-section">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Download Grayscale</h2>
-                    <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Message has been sent!</h4>
+                </div>
+                <div class="modal-body">
+                    <p>I have received your request</p>
+                    <p class='sub'>You may have a sip of coffee while waiting for my reply. 😉</p>
+                    <p class='sub'>Thank you!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Contact Section -->
-    <section id="contact" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contact Start Bootstrap</h2>
-                <p>Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!</p>
-                <p>
-                    <a href="mailto:feedback@startbootstrap.com">feedback@startbootstrap.com</a>
-                </p>
-                <ul class="list-inline banner-social-buttons">
-                    <li>
-                        <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                    </li>
-                    <li>
-                        <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <!-- Map Section -->
-    <div id="map"></div>
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <p>Copyright &copy; Your Website 2014</p>
-        </div>
-    </footer>
+    </div>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
@@ -151,6 +192,17 @@
     <script src="js/wow.min.js"></script>
     <script>
         new WOW().init();
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-31554703-1', 'auto');
+        ga('send', 'pageview');
     </script>
 </body>
 </html>

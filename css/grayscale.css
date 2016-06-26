@@ -452,3 +452,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00222222', e
     left:0;
     top:0;
 }
+.share ul li {
+    display: inline-block;
+    vertical-align: middle;
+    /*height: 40px;*/
+    width: 40px;
+    position: relative;
+    left: -40px;
+}
+
+.share ul {
+    white-space: nowrap;
+}
+
+.share {
+    width: 126px;
+}

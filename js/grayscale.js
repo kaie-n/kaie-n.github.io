@@ -58,7 +58,7 @@ $(document).ready(function () {
     $('#fullpage').fullpage({
             //Navigation
             //anchors:['intro', 'about'],
-           
+        scrollOverflow:true,
             showActiveTooltip: false,
             slidesNavigation: true,
             slidesNavPosition: 'bottom',

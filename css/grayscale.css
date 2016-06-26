@@ -468,3 +468,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00222222', e
 .share {
     width: 126px;
 }
+.form-group {
+     margin-bottom: 0px; 
+}

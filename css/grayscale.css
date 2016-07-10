@@ -390,9 +390,9 @@ body {
 
 .intro-section {
 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#222222+0,222222+100&0+0,1+76 */
-background: -moz-radial-gradient(center, ellipse cover,  rgba(34,34,34,0) 0%, rgba(34,34,34,1) 76%, rgba(34,34,34,1) 100%); /* FF3.6-15 */
-background: -webkit-radial-gradient(center, ellipse cover,  rgba(34,34,34,0) 0%,rgba(34,34,34,1) 76%,rgba(34,34,34,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: radial-gradient(ellipse at center,  rgba(34,34,34,0) 0%,rgba(34,34,34,1) 76%,rgba(34,34,34,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+background: -moz-radial-gradient(center, ellipse cover,  rgba(34,34,34,0.8) 0%, rgba(34,34,34,1) 76%, rgba(34,34,34,1) 100%); /* FF3.6-15 */
+background: -webkit-radial-gradient(center, ellipse cover,  rgba(34,34,34,0.8) 0%,rgba(34,34,34,1) 76%,rgba(34,34,34,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: radial-gradient(ellipse at center,  rgba(34,34,34,0.8) 0%,rgba(34,34,34,1) 76%,rgba(34,34,34,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00222222', endColorstr='#222222',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
         /*background: -moz-linear-gradient(top, rgba(20,20,20,0) 20%, rgba(20,20,20,1) 90%);

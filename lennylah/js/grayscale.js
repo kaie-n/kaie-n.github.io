@@ -33,13 +33,17 @@ $(document).ready(function () {
             showActiveTooltip: false,
             slidesNavigation: false,
             slidesNavPosition: 'bottom',
-            onLeave: function (index, nextIndex, direction) {
-                var leavingSection = $(this);
+            afterLoad: function (anchorLink, index) {
+                var loadedSection = $(this);
 
-                //after leaving section 2
-                if (index == 2 && direction == 'down') {
+                if (index > 1) {
+                    $.fn.fullpage.setAutoScrolling(false);
+                    $.fn.fullpage.setFitToSection(false);
+          
                 }
-                else if (index == 2 && direction == 'up') {
+                else {
+                    //$.fn.fullpage.setAutoScrolling(true);
+                    //$.fn.fullpage.setFitToSection(true);
                 }
             }
     });

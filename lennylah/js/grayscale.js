@@ -33,19 +33,9 @@ $(document).ready(function () {
             showActiveTooltip: false,
             slidesNavigation: false,
             slidesNavPosition: 'bottom',
-            afterLoad: function (anchorLink, index) {
-                var loadedSection = $(this);
-
-                if (index > 1) {
-                    $.fn.fullpage.setAutoScrolling(false);
-                    $.fn.fullpage.setFitToSection(false);
-          
-                }
-                else {
-                    //$.fn.fullpage.setAutoScrolling(true);
-                    //$.fn.fullpage.setFitToSection(true);
-                }
-            }
+            autoScrolling: false,
+            fitToSection: false,
+           
     });
     $('.overlay').delay(1000).fadeOut(1200);
 });

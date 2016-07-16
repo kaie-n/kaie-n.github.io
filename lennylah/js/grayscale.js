@@ -24,19 +24,19 @@ $('.navbar-collapse ul li a').click(function() {
 
 $(document).ready(function () {
   
-    $('#fullpage').fullpage({
-            //Navigation
-            //anchors:['intro', 'about'],
-            navigation: false,
-            navigationPosition: 'left',
-            navigationTooltips: ['intro', 'about'],
-            showActiveTooltip: false,
-            slidesNavigation: false,
-            slidesNavPosition: 'bottom',
-            autoScrolling: false,
-            fitToSection: false,
+    //$('#fullpage').fullpage({
+    //        //Navigation
+    //        //anchors:['intro', 'about'],
+    //        navigation: false,
+    //        navigationPosition: 'left',
+    //        navigationTooltips: ['intro', 'about'],
+    //        showActiveTooltip: false,
+    //        slidesNavigation: false,
+    //        slidesNavPosition: 'bottom',
+    //        autoScrolling: false,
+    //        fitToSection: false,
            
-    });
+    //});
     $('.overlay').delay(1000).fadeOut(1200);
 });
 

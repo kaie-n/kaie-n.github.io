@@ -37,7 +37,7 @@ $(document).ready(function () {
     //        fitToSection: false,
            
     //});
-    $('.overlay').delay(1000).fadeOut(1200);
+    //$('.overlay').delay(1000).fadeOut(1200);
 });
 
 //$('#myModal').modal('show');

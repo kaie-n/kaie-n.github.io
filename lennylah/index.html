@@ -3,124 +3,99 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>@lennylah</title>
+    <title>Lenny's New Solo Adventure</title>
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- One Pager Slider-->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.1/jquery.fullPage.css" />
-    <!-- Animate CSS -->
-    <link rel="stylesheet" href="css/animate.css">
-    <!-- Custom CSS -->
-    <link href="lightgallery/css/lightgallery.min.css" rel="stylesheet" />
-    <link href="css/grayscale.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kristi' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet" />
+    <!-- Theme CSS -->
+    <link href="css/grayscale.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
-
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <div class="overlay">
-        No cheating Lenny!
     </div>
-    <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 
-        <!-- /.navbar-collapse -->
-        <!-- /.container -->
-    </nav>
-    <div id="fullpage">
-
-            <div class="section works-section">
-                <div class="container-fluid clear-padding text-center">
-                    <div class="row">
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
                         <h1 class="title wow fadeInDown" data-wow-delay="2s">Assalamualaikum Lenny, </h1>
                         <p class="intro-text clear-margin wow fadeInLeft" data-wow-delay="2s"> I assume you have reached Australia safely.</p>
                         <p class="intro-text clear-margin wow fadeInRight" data-wow-delay="2s">Please select the characters to view their messages.</p>
-                        <p class="btn page-scroll wow fadeInUp" data-wow-delay="2s">
-                            Scroll
-                            <br /><br />
-                            <i class="fa fa-long-arrow-down fa-4x "></i>
-                            <br /><br /><br />
+                        <p class="wow fadeInUp" data-wow-delay="2s">
+                            <a href="#about" class="btn btn-circle page-scroll">
+
+                                <i class="fa fa-angle-double-down animated"></i>
+                            </a>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="section works-section">
-            <div class="slide">
-                <section class="container-fluid clear-padding">
-                    <div class="row">
-                        <div class="col-lg-6 col-lg-offset-3 text-center" id="video-gallery">
-                            <!--<div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/172271630?autoplay=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                            </div>-->
+    </header>
+    <!-- About Section -->
+    <div id="about">
+        <header class="intro">
+            <div class="intro-body">
+                <div class="col-lg-12">
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a onclick="$('#ain').modal('show');">
+                            <img class="img-responsive" src="images/ain-thumb.jpg" />
+                        </a>
 
-                            <div class="wrapper">
-                                <div class="row">
-                                    <ul>
-                                        <li>
-                                            <a onclick="$('#ain').modal('show');">
-                                                <img src="images/ain-thumb.jpg" />
-                                            </a>
-
-                                        </li>
-                                        <li>
-                                            <a onclick="$('#yayah').modal('show');">
-                                                <img src="images/yayah-thumb.jpg" />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a onclick="$('#iszmah').modal('show');">
-                                                <img src="images/iszmah-thumb.jpg" />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a onclick="$('#liah').modal('show');">
-                                                <img src="images/liah-thumb.jpg" />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a onclick="$('#maggi').modal('show');">
-                                                <img src="images/maggi-thumb.jpg" />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a onclick="$('#zed').modal('show');">
-                                                <img src="images/zed-thumb.jpg" />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a onclick="$('#acez').modal('show');">
-                                                <img src="images/acez-thumb.jpg" />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a onclick="$('#kai').modal('show');">
-                                                <img src="images/kai-thumb.jpg" />
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </section>
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a onclick="$('#yayah').modal('show');">
+                            <img class="img-responsive" src="images/yayah-thumb.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a onclick="$('#iszmah').modal('show');">
+                            <img class="img-responsive" src="images/iszmah-thumb.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a onclick="$('#liah').modal('show');">
+                            <img class="img-responsive" src="images/liah-thumb.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a onclick="$('#maggi').modal('show');">
+                            <img class="img-responsive" src="images/maggi-thumb.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a onclick="$('#zed').modal('show');">
+                            <img class="img-responsive" src="images/zed-thumb.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a onclick="$('#acez').modal('show');">
+                            <img class="img-responsive" src="images/acez-thumb.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a onclick="$('#kai').modal('show');">
+                            <img class="img-responsive" src="images/kai-thumb.jpg" />
+                        </a>
+                    </div>
+                </div>
             </div>
-
-        </div>
+        </header>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="acez" role="dialog">
@@ -152,7 +127,7 @@
                     <h4 class="modal-title">@rabbit.puteh</h4>
                 </div>
                 <div class="modal-body">
-                    <p><img src="images/513d62df-8bd3-4969-864e-ea22bbe9c683.jpg" /></p>
+                    <p><img class="img-responsive" src="images/513d62df-8bd3-4969-864e-ea22bbe9c683.jpg" /></p>
 
                     <p>
                         Hi lenny! This will be my default face for the 3 months that you will be away. It will be just peanut butter and no bread but it's okay. Have fun while you are learning and travelling as it will broaden your horizon.
@@ -175,7 +150,7 @@
                 </div>
                 <div class="modal-body">
                     <p>
-                        <img src="images/efaf8a3a-c2dd-4788-bba1-b623a226371e.jpg" />
+                        <img class="img-responsive" src="images/efaf8a3a-c2dd-4788-bba1-b623a226371e.jpg" />
                     </p>
 
                     <p>
@@ -198,7 +173,7 @@
                 </div>
                 <div class="modal-body">
                     <p>
-                        <img src="images/83e832bd-29a7-457c-afac-49b423bf9ef3.jpg" />
+                        <img class="img-responsive" src="images/83e832bd-29a7-457c-afac-49b423bf9ef3.jpg" />
                     </p>
 
                     <p>
@@ -223,7 +198,7 @@
                 </div>
                 <div class="modal-body">
                     <p>
-                        <img src="images/667a1dbb-28b2-44e8-a5be-a722eb8dd7a3.jpg" />
+                        <img class="img-responsive" src="images/667a1dbb-28b2-44e8-a5be-a722eb8dd7a3.jpg" />
                     </p>
 
                     <p>
@@ -268,7 +243,7 @@
                 </div>
                 <div class="modal-body">
                     <p>
-                        <img src="images/4dc49016-baec-4581-9c08-e3f6453d6be8.jpg" />
+                        <img class="img-responsive" src="images/4dc49016-baec-4581-9c08-e3f6453d6be8.jpg" />
                     </p>
 
                     <p>
@@ -293,7 +268,7 @@
                 </div>
                 <div class="modal-body">
                     <p>
-                        <img src="images/IMG_9718.JPG" />
+                        <img class="img-responsive" src="images/IMG_9718.JPG" />
                     </p>
 
                     <p>
@@ -304,7 +279,6 @@
                         you'll be able to overcome any obstacles. <br />
                         May the force be with you, Senpai<br />
                         And always, remember the Great One!"
-                         
                     </p>
                 </div>
                 <div class="modal-footer">
@@ -314,33 +288,15 @@
         </div>
     </div>
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="vendor/jquery/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- One pager slider -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.1/jquery.fullPage.js"></script>
-    <!-- Light Gallery -->
-    <script src="lightgallery/js/lightgallery.min.js"></script>
-    <script src="lightgallery/js/lg-video.min.js"></script>
-    <script src="lightgallery/js/lg-thumbnail.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <!-- Plugin JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <!-- Custom Theme JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/wow.js"></script>
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+    <!-- Theme JavaScript -->
     <script src="js/grayscale.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script>
-        new WOW().init();
-    </script>
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-31554703-1', 'auto');
-        ga('send', 'pageview');
-    </script>
 </body>
 </html>

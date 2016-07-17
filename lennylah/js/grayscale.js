@@ -4,6 +4,9 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+// jQuery to collapse the navbar on scroll
+
+
 // jQuery for page scrolling feature - requires jQuery Easing plugin
 $(function() {
     $('a.page-scroll').bind('click', function(event) {
@@ -15,29 +18,13 @@ $(function() {
     });
 });
 
-// Closes the Responsive Menu on Menu Item Click
-$('.navbar-collapse ul li a').click(function() {
-  if ($(this).attr('class') != 'dropdown-toggle active' && $(this).attr('class') != 'dropdown-toggle') {
-    $('.navbar-toggle:visible').click();
-  }
-});
+
+
 
 $(document).ready(function () {
-  
-    //$('#fullpage').fullpage({
-    //        //Navigation
-    //        //anchors:['intro', 'about'],
-    //        navigation: false,
-    //        navigationPosition: 'left',
-    //        navigationTooltips: ['intro', 'about'],
-    //        showActiveTooltip: false,
-    //        slidesNavigation: false,
-    //        slidesNavPosition: 'bottom',
-    //        autoScrolling: false,
-    //        fitToSection: false,
-           
-    //});
-    //$('.overlay').delay(1000).fadeOut(1200);
+    $('html, body').stop().animate({
+        scrollTop: 0
+    }, 1500, 'easeInOutExpo');
+     $('.overlay').delay(1000).fadeOut(1200);
+     new WOW().init();
 });
-
-//$('#myModal').modal('show');

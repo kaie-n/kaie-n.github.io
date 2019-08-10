@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ZON IQLIM - DATABASE</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- To display the special character as placeholder correctly -->
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+		<!-- include Pinlogin plugin-->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="../dist/pinlogin.pkgd.min.js"></script>
+		<link href="../dist/pinlogin.css" rel="stylesheet" type="text/css" />
+		<style>
+				html, body {
+						margin: 0;
+						width: 100%;
+						height: 100%;
+				}
+				#dialogText {
+						padding: 10px 30px;
+						color: white;
+				}
+
+				#dialogWrap {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						display: table;
+				}
+
+				#dialogWrapCell {
+						display: table-cell;
+						text-align: center;
+						vertical-align: middle;
+				}
+
+				#mainDialog {
+						max-width: 400px;
+						margin: 5px;
+						border: solid #AAAAAA 1px;
+						border-radius: 10px;
+						box-shadow: 3px 3px 5px 3px #AAAAAA;
+						margin-left: auto;
+						margin-right: auto;
+						background-color: #FFFFFF;
+						overflow: hidden;
+						text-align: center;
+				}
+				#passArea {
+						padding: 20px 30px;
+				}
+				#passArea > * {
+						margin: 5px auto;
+				}
+				#pass {
+						width: 100%;
+						height: 40px;
+						font-size: 30px;
+				}
+
+				#messageWrapper {
+					//float: left;
+						vertical-align: middle;
+						line-height: 30px;
+				}
+
+				.notifyText {
+						display: none;
+				}
+
+				#invalidPass {
+						color: red;
+				}
+
+				#success {
+						color: green;
+				}
+
+				#submitPass {
+						font-size: 20px;
+						border-radius: 5px;
+						background-color: #E7E7E7;
+						border: solid gray 1px;
+						float: right;
+				}
+				#contentFrame {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+				}
+				#myProgress {
+				  width: 100%;
+				  background-color: grey;
+				}
+				#totalProgress {
+					display:none;
+				}
+
+				#myBar {
+				  width: 1%;
+				  height: 30px;
+				  background-color: green;
+				}
+		</style>
+		<link href="style.css" rel="stylesheet" type="text/css" />
+
+	</head>
+	<body>
+
+
+
+		<main>
+			<div id="dialogWrap">
+					<div id="dialogWrapCell">
+							<div id="mainDialog">
+
+								<img src="logo.png" height="300" width="300">
+
+				<h2>Please enter your pincode</h2><br/>
+
+				<div id="loginpin"></div>
+				<div>
+						<span id="messageWrapper">
+								<span id="invalidPass" class="notifyText">Sorry, please try again.</span>
+								<span id="success" class="notifyText">Success!</span>
+								&nbsp;
+						</span>
+						<div id="totalProgress">
+						<div id="myProgress">
+					  <div id="myBar"></div>
+					</div>
+					</div>
+						<div style="clear: both;"></div>
+				</div>
+				<br />
+
+				<br />
+
+
+
+			</div>
+		</div>
+	</div>
+		</main>
+
+
+
+		<script type="text/javascript">
+
+		document.addEventListener("DOMContentLoaded", function(event) {
+
+			// ---- Basic example with 4 fields -----
+			var arrayPin =["8483", "3488", "8348", "8834", "4883", "8438", "4388", "8843", "4838", "3848", "3884", "8384"];
+			var guessCount = 0;
+			var invalidPassEl = document.getElementById('invalidPass');
+			var successEl = document.getElementById('success');
+			var progressBar = document.getElementById('totalProgress');
+			var loginpin =  new Pinlogin(document.querySelector('#loginpin'), {
+
+					fields : 4,
+
+					complete : function(pin){
+
+						// further processing here
+						//alert ('Awesome! You entered: ' + pin);
+						// Process guess here, eg:
+						guessCount++;
+						invalidPassEl.style.display = "inline";
+						if(guessCount >= 3){
+						for (var i = 0; i<12; i++){
+							if (arrayPin[i]==pin) {
+								// Good guess
+								invalidPassEl.style.display = "none";
+								successEl.style.display = "inline";
+								progressBar.style.display = "inline";
+								move();
+								break;
+							}
+						}
+						}
+					},
+				});
+				function move() {
+			  var elem = document.getElementById("myBar");
+			  var width = 1;
+			  var id = setInterval(frame, 30);
+			  function frame() {
+			    if (width >= 100) {
+			      clearInterval(id);
+						window.location.href = "email.html";
+			    } else {
+			      width++;
+			      elem.style.width = width + '%';
+			    }
+			  }
+			}
+			// ---- Pincode input with retype functionality, as a jQuery plugin -----
+
+			var pincode = '';
+
+			var registerpin = $('#registerpin').pinlogin({
+				placeholder : '*',
+				reset : false,
+				autofocus : false,
+				complete : function(pin){
+
+					pincode = pin;
+
+					// focus on the first field of the pincode retype instance
+					registerpinretype.focus(0);
+
+					// disable this instance
+					registerpin.disable();
+				}
+			});
+
+			var registerpinretype = new Pinlogin(document.querySelector('#registerpinretype'),{
+				placeholder : '*',
+				reset : false,
+				autofocus : false,
+				complete : function(pin){
+
+					// compare entered pincodes
+					if (pincode !== pin){
+						pincode = '';
+
+						// reset both instances
+						registerpin.reset();
+						registerpinretype.reset();
+
+						// disable repeat instance
+						registerpinretype.disable();
+
+						// set focus to first instance again
+						registerpin.focus(0);
+
+						alert ('Pincodes do not match, please try again');
+					}
+					else {
+
+						// reset both instances
+						registerpin.reset();
+						registerpinretype.reset();
+
+						// disable both instances
+						registerpin.disable();
+						registerpinretype.disable();
+
+						// further processing here
+						alert ('Awesome! You entered: ' + pin);
+					}
+				}
+			});
+
+			// disable repeat instance at start
+			registerpinretype.disable();
+		});
+		</script>
+
+	</body>
+</html>

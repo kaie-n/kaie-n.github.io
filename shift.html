@@ -721,45 +721,54 @@
         ]
       }
 
-      function getData(res){
-        const d = new Date();
-        const time = (d.getHours() * 100) + d.getMinutes();
-        const array = data[res];
-        const index = array.findIndex(x=>x.start <= time && x.end >= time);
+      function getData(res) {
+    const d = new Date();
+    const time = (d.getHours() * 100) + d.getMinutes();
+    const array = data[res];
 
-        if(index >= 0){
-          let detail = "";
+    let index;
+    
+    // If current time is before 1315, show only 1300-1315 first
+    if (time < 1315) {
+        index = array.findIndex(x => x.start >= 1300 && x.end <= 1315);
+    } else {
+        // Otherwise, find based on the current time
+        index = array.findIndex(x => x.start <= time && x.end >= time);
+    }
 
-          const nums = [index-2,index-1,index,index+1,index+2];
+    if (index >= 0) {
+        let detail = "";
 
-          for(const x of nums){
-            if(x < 0 || x >= array.length){
-              continue;
+        const nums = [index - 2, index - 1, index, index + 1, index + 2];
+
+        for (const x of nums) {
+            if (x < 0 || x >= array.length) {
+                continue;
             }
 
-            detail += detail === "" ? "" : "<br>";
             const item = array[x];
             let d = item.start + ": " + item.location;
 
-            if(item.start <= time && item.end > time){ //current slot
-              d = "<span style='color:#ffea00'>" + d + "</span>";
-            }else if(x.end <= time){
-              d = "<span style='color:silver'>" + d + "</span>";
+            if (item.start <= time && item.end > time) { // Current slot
+                d = "<span style='color:#ffea00'>" + d + "</span>";
+            } else if (item.end <= time) { // Past slots
+                d = "<span style='color:silver'>" + d + "</span>";
             }
 
-            detail += d;
-          }
-
-          const oe = data[res].filter(x=>x.start > time && x.location.toString().includes("_OE"));
-          const next = "<br><br><span style='color:#BBDEF2'>Next OE: ";
-          detail += oe.length > 0 ? next + oe[0].start + "-" + oe[0].end : next + "-";
-          detail += "</span>"
-
-          document.getElementById("detail").innerHTML = detail;
-        }else{
-          document.getElementById("detail").innerHTML = "Nothing Found";
+            detail += detail === "" ? d : "<br>" + d;
         }
-      }
+
+        // Show next OE
+        const oe = array.filter(x => x.start > time && x.location.toString().includes("_OE"));
+        detail += oe.length > 0 
+            ? `<br><br><span style='color:#BBDEF2'>Next OE: ${oe[0].start}-${oe[0].end}</span>`
+            : `<br><br><span style='color:#BBDEF2'>Next OE: -</span>`;
+
+        document.getElementById("detail").innerHTML = detail;
+    } else {
+        document.getElementById("detail").innerHTML = "Nothing Found";
+    }
+}
     </script>
   </body>
 </html>
